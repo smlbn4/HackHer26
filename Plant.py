@@ -11,7 +11,9 @@ class plant(sprite):
     numPlants = -1      # (Starts at -1 so positions work correctly)
         
     # Possible x locations
-    plotXLocs = [i - 58 for i in [106, 212, 318, 424, 530, 636]]
+    plotXLocs = [58, 154, 260, 366, 472, 578]
+
+    PLANT_Y = 350   # Y for all plants
 
     ## CONSTRUCTOR ##
     def __init__(self, type:str, img_folder:str, bugs:list[bug] = [], price:float = 0.0):
@@ -27,7 +29,7 @@ class plant(sprite):
 
         super().__init__(self.stage1image)
 
-        self.loc = plant.plotXLocs[self.numPlants]
+        self.loc = (plant.plotXLocs[plant.numPlants], plant.PLANT_Y)
 
         self.stage = 1                          # Current stage
         self.type = type                        # String defining plant type

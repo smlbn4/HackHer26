@@ -34,10 +34,7 @@ def main():
     allSprites.append(dirt)
 
     # Plant
-    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant", ())
-
-    plantYLoc =  canvas.get_height() - dirt.get_height() - 30 - testPlant.get_height() / 2
-    plotXLocs = [106, 212, 318, 424, 530, 636]
+    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
 
     allSprites.append(testPlant)
 
@@ -53,6 +50,8 @@ def main():
 
         # Draw all sprites
         for s in allSprites:
+
+            print(s)
             canvas.blit(s.get_image(), s.get_location())
         
         # Draw final product
