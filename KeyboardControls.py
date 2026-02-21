@@ -6,6 +6,8 @@ import button
 
 class keyboardControls():
     
+
+    ## CONSTRUCTOR ##
     def __init__(self, quitKey):
         self.quitKey = pygame.key.key_code(quitKey)
         
@@ -20,8 +22,7 @@ class keyboardControls():
                 return False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    print("click")
                     for b in buttons:
                         if b.getRect().collidepoint(mousePos):
-                            b.buttonPressed(b.getAction())
+                            return b.buttonPressed(b.getAction())
         return True

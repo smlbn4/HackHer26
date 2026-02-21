@@ -21,11 +21,13 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(action):
+    def buttonPressed(self, action):
         if action == "none":
-            return
+            return True
         if action == "quit":
-            pygame.quit()
+            return False
+        if action == "focus":
+            return # STOPWATCH IMPLEMENTATION
 
     def makeRect(self):
         self.pressRect = pygame.rect.Rect((self.get_location()[0], self.get_location()[1]), (self.get_width(), self.get_height()))
