@@ -8,5 +8,5 @@ class bug(sprite):
         self.spritesfolder = spritesfolder
     def get_prob(self):
         return self.probability
-    def get_img(self):
-        return 
+    def get_sprite(self):
+        return self.spritesfolder #needs to be edited
