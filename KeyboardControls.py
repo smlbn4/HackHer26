@@ -3,7 +3,7 @@ import pygame
 import pickle
 #############
 
-class KeyboardControls():
+class keyboardControls():
     
     def __init__(self, quitKey):
         self.quitKey = pygame.key.key_code(quitKey)
