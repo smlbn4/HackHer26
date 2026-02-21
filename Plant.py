@@ -4,6 +4,8 @@ from sprite import sprite
 
 class plant(sprite):
 
+    numPlants = 0
+
 
     ## CONSTRUCTOR ##
     def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
