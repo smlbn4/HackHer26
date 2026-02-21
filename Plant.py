@@ -1,4 +1,4 @@
-class Plant():
+class Plant:
     def __init__(self, type, img_folder, bug_dict, price):
         self.stage = 1
         self.type = type
