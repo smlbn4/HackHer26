@@ -68,6 +68,7 @@ def main():
         pygame.display.flip()
 
         mousePos = pygame.mouse.get_pos()
+        if 
 
         keepRunning = kbReader.processOneEvent()
 

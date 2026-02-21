@@ -23,4 +23,6 @@ class button(sprite):
     def buttonPressed(action):
         if action == "none":
             return
+        if action == "quit":
+            pygame.quit()
         
