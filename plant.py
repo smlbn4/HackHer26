@@ -44,6 +44,8 @@ class plant(sprite):
         
     def get_price(self):
         return self.price
-
-
     
+if __name__ == "__main__":
+    daisy = plant("PLC", "./Placeholder Sprites/testPlant")
+    daisy.water_plant()
+    print(daisy.get_img())
