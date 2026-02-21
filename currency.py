@@ -12,7 +12,8 @@ class currency:
         return self.value
     
     def can_spend(self, amt):
-        if self.value - amt > 0:
+        if self.value - amt >= 0:
             return True
         else:
             return False
+        
