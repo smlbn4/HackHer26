@@ -35,6 +35,7 @@ def main():
 
     # Plant
     testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
+    testPlant.water_plant()
     testPlant.loc = (100, 100)
     allSprites.append(testPlant)
 

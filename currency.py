@@ -17,3 +17,4 @@ class currency:
         else:
             return False
         
+        

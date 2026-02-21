@@ -4,7 +4,7 @@ class plant(sprite):
 
     ## CONSTRUCTOR ##
     def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
-        super().__init__(f"{img_folder}/{type}stage1.PNG")
+        super().__init__(self.get_path())
         self.stage = 1
         self.type = type
 
@@ -23,18 +23,6 @@ class plant(sprite):
     def water_plant(self):
         if self.stage < 5:
             self.stage += 1
-        
-    def get_img(self):
-        if self.stage == 1:
-            return self.stage1image
-        elif self.stage == 2:
-            return self.stage2image
-        elif self.stage == 3:
-            return self.stage3image
-        elif self.stage == 4:
-            return self.stage4image
-        else:
-            return self.stage5image
 
     def can_sell_plant(self):
         if self.stage == 5:
