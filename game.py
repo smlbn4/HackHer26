@@ -4,6 +4,7 @@ import pickle
 import keyboardControls
 import sprite
 import button
+import plant
 #############
 
 def main():
@@ -28,6 +29,7 @@ def main():
     allSprites.append(quitButton)
 
     # Plant
+    testPlant = plant.plant()
     
     #############
 

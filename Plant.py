@@ -1,5 +1,10 @@
-class Plant:
-    def __init__(self, type, img_folder, bugs, price):
+##
+from sprite import sprite
+##
+
+class plant(sprite):
+    def __init__(self, type:str, img_folder:str, bugs, price:float):
+        super().__init__(f"{img_folder}/{type}stage1.PNG")
         self.stage = 1
         self.type = type
         self.img_folder = img_folder
