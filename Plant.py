@@ -1,3 +1,5 @@
+class plant:
+    def __init__(self, type, img_folder, bugs, price):
 ##
 from sprite import sprite
 ##
