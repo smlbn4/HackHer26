@@ -1,9 +1,4 @@
-class plant:
-    def __init__(self, type, img_folder, bugs, price):
-##
 from sprite import sprite
-##
-
 class plant(sprite):
 
     numPlants = 0
@@ -32,7 +27,16 @@ class plant(sprite):
             self.stage += 1
         
     def get_img(self):
-        return self.img_folder + "/stage" + str(self.stage) + ".png"
+        if self.stage == 1:
+            return self.stage1image
+        elif self.stage == 2:
+            return self.stage2image
+        elif self.stage == 3:
+            return self.stage3image
+        elif self.stage == 4:
+            return self.stage4image
+        else:
+            return self.stage5image
 
     def can_sell_plant(self):
         if self.stage == 5:
