@@ -1,5 +1,5 @@
-import time
 
+import time
 class Stopwatch:
 
     def __init__(self):
@@ -17,12 +17,21 @@ class Stopwatch:
         print(self.stop_time)
 
     def elapsedTime(self): #return time elapsed
-        self.elapsed_time = self.start_time - self.stop_time 
+        self.elapsed_time = self.stop_time - self.start_time 
         return self.elapsed_time
 
     def reset(self): #return nothing
+        self.start_time = 0
+        self.stop_time = 0
         self.elapsed_time = 0
+        print(self.start_time, self.stop_time,self.elapsed_time)
+
 
 if __name__ == "__main__":
+    print("hello")
     stopwatch = Stopwatch()
+    stopwatch.start()
+    stopwatch.stop()
+    print(stopwatch.elapsedTime())
+    stopwatch.reset()
 
