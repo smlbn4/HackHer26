@@ -6,4 +6,7 @@ class bug(sprite):
         self.found = False
         self.probability = probability
         self.spritesfolder = spritesfolder
-   #def get_probability(self):
+    def get_prob(self):
+        return self.probability
+    def get_sprite(self):
+        return self.spritesfolder #needs to be edited
