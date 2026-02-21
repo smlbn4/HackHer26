@@ -4,18 +4,10 @@ class plant(sprite):
 
     ## CONSTRUCTOR ##
     def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
-        super().__init__(self.get_path())
         self.stage = 1
         self.type = type
-
         self.img_folder = img_folder
-
-        # Individual stage images
-        self.stage1image = f"{img_folder}/{type}stage1.PNG"
-        self.stage2image = f"{img_folder}/{type}stage2.PNG"
-        self.stage3image = f"{img_folder}/{type}stage3.PNG"
-        self.stage4image = f"{img_folder}/{type}stage4.PNG"
-        self.stage5image = f"{img_folder}/{type}stage5.PNG"
+        super().__init__(self.get_path())
 
         self.bugs = bugs
         self.price = price
@@ -23,6 +15,11 @@ class plant(sprite):
     def water_plant(self):
         if self.stage < 5:
             self.stage += 1
+
+        super().__init__(self.get_path())
+
+    def get_path(self):
+        return f"{self.img_folder}/{self.type}stage{self.stage}.PNG"
 
     def can_sell_plant(self):
         if self.stage == 5:
