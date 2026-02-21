@@ -28,7 +28,7 @@ def main():
     buttons.append(startButton)
 
     # Quit button
-    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG")
+    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
     quitButton.loc = ((canvas.get_width() - quitButton.get_width() - 10, 10))
     allSprites.append(quitButton)
     buttons.append(quitButton)
@@ -62,18 +62,15 @@ def main():
 
         # Draw all sprites
         for s in allSprites:
-
-            print(s)
             canvas.blit(s.get_image(), s.get_location())
         
         # Draw final product
         pygame.display.flip()
 
         mousePos = pygame.mouse.get_pos()
-        for b in buttons:
-            b.pressed(mousePos)
 
         keepRunning = kbReader.processOneEvent()
 
 if __name__ == "__main__":
     main()
+    pygame.quit()

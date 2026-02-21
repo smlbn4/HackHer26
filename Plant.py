@@ -11,7 +11,7 @@ class plant(sprite):
     numPlants = -1      # (Starts at -1 so positions work correctly)
         
     # Possible x locations
-    plotXLocs = [58, 154, 260, 366, 472, 578]
+    PLOT_X_LOCS = [58, 154, 260, 366, 472, 578]
 
     PLANT_Y = 350   # Y for all plants
 
@@ -29,7 +29,7 @@ class plant(sprite):
 
         super().__init__(self.stage1image)
 
-        self.loc = (plant.plotXLocs[plant.numPlants], plant.PLANT_Y)
+        self.loc = (plant.PLOT_X_LOCS[plant.numPlants], plant.PLANT_Y)
 
         self.stage = 1                          # Current stage
         self.type = type                        # String defining plant type
