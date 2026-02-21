@@ -4,6 +4,7 @@ import pickle
 import keyboardControls
 import sprite
 import button
+import plant
 #############
 
 def main():
@@ -27,7 +28,22 @@ def main():
     quitButton.loc = ((canvas.get_width() - quitButton.get_width() - 10, 10))
     allSprites.append(quitButton)
 
+    # Dirt
+    dirt = sprite.sprite("./Placeholder Sprites/PLCplots.PNG")
+    dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
+    allSprites.append(dirt)
+
     # Plant
+    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
+    testPlant.loc = (100, 100)
+    allSprites.append(testPlant)
+
+    plantYLoc =  canvas.get_height() - (dirt.get_height() / 2) - 30 + testPlant.get_height()
+    plotXLocs = [106, 212, 318, 424, 530, 636]
+    currPlantNum = 0
+
+
+    
     
     #############
 
