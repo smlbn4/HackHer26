@@ -9,6 +9,7 @@ class plant(sprite):
         self.type = type
 
         self.img_folder = img_folder
+        numPlants += 1 # type: ignore
 
         # Individual stage images
         self.stage1image = f"{img_folder}/{type}stage1.PNG"
