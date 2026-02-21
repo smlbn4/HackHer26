@@ -11,6 +11,9 @@ class keyboardControls():
 
     def processOneEvent(self):
         pressedKeys =  pygame.key.get_pressed()
+        if pressedKeys[self.quitKey]:
+            return False
+
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
                 return False

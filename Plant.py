@@ -1,20 +1,22 @@
 ##
 from sprite import sprite
+from bug import bug
 ##
 
 class plant(sprite):
 
-    # How many plants are present (static)
-    numPlants = 0
+    ## All plants should be 127 x 197 px ##
 
+    # How many plants are present (static)
+    numPlants = -1      # (Starts at -1 so positions work correctly)
+        
+    # Possible x locations
+    plotXLocs = [i - 58 for i in [106, 212, 318, 424, 530, 636]]
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
-        super().__init__(f"{img_folder}/{type}stage1.PNG")
-        self.stage = 1
-        self.type = type
+    def __init__(self, type:str, img_folder:str, bugs:list[bug] = [], price:float = 0.0):
 
-        self.img_folder = img_folder
+        plant.numPlants += 1
 
         # Individual stage images
         self.stage1image = f"{img_folder}/{type}stage1.PNG"
@@ -23,8 +25,20 @@ class plant(sprite):
         self.stage4image = f"{img_folder}/{type}stage4.PNG"
         self.stage5image = f"{img_folder}/{type}stage5.PNG"
 
-        self.bugs = bugs
-        self.price = price
+        super().__init__(self.stage1image)
+
+        self.loc = plant.plotXLocs[self.numPlants]
+
+        self.stage = 1                          # Current stage
+        self.type = type                        # String defining plant type
+
+        self.img_folder = img_folder            # Folder name contianing stage images
+
+        self.bugs = bugs                        # Possible bugs attracted
+        self.price = price                      # Sell cost
+
+
+
 
     def water_plant(self):
         if self.stage < 5:
@@ -40,6 +54,10 @@ class plant(sprite):
             return False
         
     def get_price(self):
+        return self.price
+    
+    def sell_plant(self):
+        plant.numPlants -= 1
         return self.price
 
 

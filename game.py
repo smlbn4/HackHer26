@@ -10,7 +10,7 @@ import plant
 def main():
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
-    kbReader    = keyboardControls.keyboardControls("ESCAPE")
+    kbReader    = keyboardControls.keyboardControls("escape")
 
     BGCOLOR = (255, 247, 224)
 
@@ -34,13 +34,12 @@ def main():
     allSprites.append(dirt)
 
     # Plant
-    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
-    testPlant.loc = (100, 100)
-    allSprites.append(testPlant)
+    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant", ())
 
-    plantYLoc =  canvas.get_height() - (dirt.get_height() / 2) - 30 + testPlant.get_height()
+    plantYLoc =  canvas.get_height() - dirt.get_height() - 30 - testPlant.get_height() / 2
     plotXLocs = [106, 212, 318, 424, 530, 636]
-    currPlantNum = 0
+
+    allSprites.append(testPlant)
 
 
     
@@ -48,8 +47,9 @@ def main():
     #############
 
     while keepRunning:
+
+        # Background color
         canvas.fill(BGCOLOR)
-        keepRunning = kbReader.processOneEvent()
 
         # Draw all sprites
         for s in allSprites:
@@ -57,6 +57,8 @@ def main():
         
         # Draw final product
         pygame.display.flip()
+
+        keepRunning = kbReader.processOneEvent()
 
 if __name__ == "__main__":
     main()
