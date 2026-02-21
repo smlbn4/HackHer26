@@ -1,9 +1,9 @@
 class Plant:
-    def __init__(self, type, img_folder, bug_dict, price):
+    def __init__(self, type, img_folder, bugs, price):
         self.stage = 1
         self.type = type
         self.img_folder = img_folder
-        self.bug_dict = bug_dict
+        self.bugs = bugs
         self.price = price
 
     def water_plant(self):
@@ -22,10 +22,5 @@ class Plant:
     def get_price(self):
         return self.price
 
-if __name__ == "__main__":
-    flower1 = Plant("Daisy", "demo_img_folder", {"Ant": 0.33, "Slug": 0.1}, 3.50)
-    
-    flower1.water_plant()
-    print(flower1.can_sell_plant())
 
     
