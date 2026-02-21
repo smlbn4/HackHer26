@@ -29,7 +29,9 @@ def main():
     allSprites.append(quitButton)
 
     # Plant
-    testPlant = plant.plant()
+    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
+    testPlant.loc = (100, 100)
+    allSprites.append(testPlant)
     
     #############
 

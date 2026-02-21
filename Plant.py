@@ -6,7 +6,7 @@ class plant(sprite):
 
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, img_folder:str, bugs, price:float):
+    def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
         super().__init__(f"{img_folder}/{type}stage1.PNG")
         self.stage = 1
         self.type = type
