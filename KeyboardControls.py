@@ -16,12 +16,12 @@ class keyboardControls():
             return False
 
         for event in pygame.event.get():
-            if (event.type == pygame.QUIT):
+            if event.type == pygame.QUIT:
                 return False
-            if event == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     print("click")
                     for b in buttons:
-                        if b.pressed(mousePos):
-                            b.buttonPressed(b.get_action())
+                        if b.getRect().collidepoint(mousePos):
+                            b.buttonPressed(b.getAction())
         return True

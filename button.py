@@ -12,7 +12,7 @@ class button(sprite):
         self.pressRect = pygame.rect.Rect(0, 0, 0, 0)
 
 
-    def get_action(self):
+    def getAction(self):
         return self.action
 
     def pressed(self, mousePos):
@@ -29,4 +29,7 @@ class button(sprite):
 
     def makeRect(self):
         self.pressRect = pygame.rect.Rect((self.get_location()[0], self.get_location()[1]), (self.get_width(), self.get_height()))
+
+    def getRect(self):
+        return self.pressRect
         
