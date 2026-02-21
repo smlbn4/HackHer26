@@ -72,13 +72,9 @@ def main():
 
         mousePos = pygame.mouse.get_pos()
 
-        keepRunning = kbReader.processOneEvent()
+        keepRunning = kbReader.processOneEvent(mousePos, buttons)
 
-        for event in pygame.event.get():
-            if event == pygame.MOUSEBUTTONDOWN:
-                for b in buttons:
-                    if b.pressed(mousePos):
-                        b.buttonPressed(b.get_action())
+        
                 
 
 if __name__ == "__main__":
