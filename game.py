@@ -8,6 +8,7 @@ import plant
 #############
 
 def main():
+
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
     kbReader    = keyboardControls.keyboardControls("escape")
@@ -68,7 +69,10 @@ def main():
         pygame.display.flip()
 
         mousePos = pygame.mouse.get_pos()
-        if 
+        for b in buttons:
+            if b.pressed:
+                print("boink")
+
 
         keepRunning = kbReader.processOneEvent()
 
