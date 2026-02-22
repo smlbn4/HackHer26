@@ -13,7 +13,7 @@ class keyboardControls():
         self.quitKey = pygame.key.key_code(quitKey)
         
 
-    def processOneEvent(self, mousePos, buttons):
+    def processOneEvent(self, mousePos, buttons, pMenu):
         pressedKeys =  pygame.key.get_pressed()
         if pressedKeys[self.quitKey]:
             return False
@@ -27,6 +27,9 @@ class keyboardControls():
                         if b.getRect().collidepoint(mousePos):
                             return b.buttonPressed(b.getAction())
                 elif event.button == 3:
-                    
-                            
+                    if pMenu.visible:
+                        pMenu.hide()
+                    else:
+                        pMenu.show(mousePos)
         return True
+

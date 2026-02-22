@@ -34,15 +34,16 @@ def main():
     allSprites.append(quitButton)
     buttons.append(quitButton)
 
-    # Plot menu
-    pMenu = plotMenu("./Plot Menu Sprites/plotmenubase.PNG")
-    pMenu
-    
 
     # Dirt
     dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
     allSprites.append(dirt)
+
+    # Plot menu
+    pMenu = plotMenu()
+    buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu. plotSell])
+    allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu. plotSell])
 
     # Plant
     testPlant = plant("milkweed")
@@ -56,7 +57,8 @@ def main():
 
         # Draw all sprites
         for s in allSprites:
-            canvas.blit(s.get_image(), s.get_location())
+            if s.visible == True:
+                canvas.blit(s.get_image(), s.get_location())
         
         # Draw final product
         pygame.display.flip()
@@ -64,7 +66,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        keepRunning = kbReader.processOneEvent(mousePos, buttons)
+        keepRunning = kbReader.processOneEvent(mousePos, buttons, pMenu)
 
 
 

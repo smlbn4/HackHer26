@@ -18,7 +18,7 @@ class plotMenu(sprite):
         self.disable("watch")
         self.disable("sell")
 
-        self.visible = False
+        self.hide()
 
 
 
@@ -33,11 +33,11 @@ class plotMenu(sprite):
 
         if buttonType == "watch":
             self.plotWatch = button("./Plot Menu Sprites/plotmenuwatchenabled.PNG", self.get_location(), "watch")
-            self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
+            self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 120, 75, 27)
 
         if buttonType == "sell":
             self.plotSell = button("./Plot Menu Sprites/plotmenusellenabled.PNG", self.get_location(), "sell")
-            self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+            self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
 
 
     def disable(self, buttonType:str):
@@ -51,20 +51,36 @@ class plotMenu(sprite):
 
         if buttonType == "watch":
             self.plotWatch = button("./Plot Menu Sprites/plotmenuwatchdisabled.PNG")
-            self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
+            self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 120, 75, 27)
 
         if buttonType == "sell":
             self.plotSell = button("./Plot Menu Sprites/plotmenuselldisabled.PNG")
-            self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+            self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
 
     def set_position(self, loc:tuple):
         self.loc = loc
 
         self.plotBuy.pressRect = (self.get_location()[0] + 56, self.get_location()[1] + 46, 80, 28)
         self.plotWater.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
-        self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
-        self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+        self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 120, 75, 27)
+        self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
 
     def show(self, mousePos:tuple):
         self.set_position(mousePos)
+
+        self.visible = True
+        self.plotBuy.visible = True
+        self.plotWater.visible = True
+        self.plotWatch.visible = True
+        self.plotSell.visible = True
+
+    def hide(self):
+        if self.visible == False:
+            return
+        else:
+            self.visible = False
+            self.plotBuy.visible = False
+            self.plotWater.visible = False
+            self.plotWatch.visible = False
+            self.plotSell.visible = False
 
