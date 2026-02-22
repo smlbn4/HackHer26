@@ -18,9 +18,14 @@ def main():
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
     timeBalance = timeCurrency(0)
+
     plots       = [None, None, None, None, None]
     for e in plots:
         e = plot()
+
+    plotRects   = [None, None, None, None, None]
+    for e in plotRects:
+        e = pygame.rect.Rect((plant.PLOT_X_LOCS[i], plant.PLANT_Y), (plant.PLANT_DIMS))
 
     BGCOLOR = (255, 247, 224)
 

@@ -5,6 +5,8 @@ class plant(sprite):
     # Possible x locations
     PLOT_X_LOCS = [58, 154, 260, 366, 472, 578]
 
+    PLANT_DIMS = (127, 197)
+
     PLANT_Y = 350   # Y for all plants
     plant_types = []
 
@@ -20,7 +22,7 @@ class plant(sprite):
         super().__init__(self.get_path())       # Sprite superclass
 
         self.can_spawn_bugs = False             # Can't spawn bugs until stage 5
-        self.bugs = bugs                     # Bugs to spawn
+        self.bugs = bugs                        # Bugs to spawn
         self.purchase_price = purchase_price    # Purchase price from buy tab
         self.sale_price = sale_price            # Sell price at stage 5
         plant.plant_types.append(str(self))     # Add plant to list of all plants
