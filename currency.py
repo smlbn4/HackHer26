@@ -18,6 +18,6 @@ class currency:
             return False
         
     def __str__(self):
-        return f"${self.value}"
+        return f"{self.value}"
         
         

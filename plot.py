@@ -5,7 +5,7 @@ from timeCurrency import timeCurrency
 from bug import bug
 from button import button
 
-class plot():
+class plot:
     
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
@@ -31,19 +31,19 @@ class plot():
 
             # Plant is not stage 5 - cannot sell
             else:
-                print("Error: Plant is not mature, cannot be sold.")
+                return
 
         # Plot has no plant
         else:
-            print("Error: Plot is empty, no plant to be sold.")
+            return
 
     def buy_plant(self, balance:currency, seed:plant): 
         if not self.is_empty:
-            print("Error: Plot is not empty, cannot buy seeds.")
+            return
         else:
             seed_price = seed.get_purchase_price()
             if not balance.can_spend(seed_price):
-                print("Error: Insufficient funds.")
+                return
             else:
                 balance.decrease_value(seed_price)
                 self.plot_plant = seed

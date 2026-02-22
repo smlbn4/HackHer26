@@ -56,21 +56,24 @@ def main():
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
     allSprites.append(dirt)
 
-    # Plant
-    testPlant = plant("milkweed")
-    allSprites.append(testPlant)
-
     # Plot menu
     pMenu = plotMenu()
     buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
     allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
 
     # Bugs
-    bumblebee = bug("bumblebee", 0.5, "The bumblebee is a bug.", "beebalm")
-    grasshopper = bug("grasshopper", 0.2, "The grasshopper is a bug.", "lettuce")
-    ladybug = bug("ladybug", 0.4, "The ladybug is a bug.", "geranium")
+    bumblebee = bug("bumblebee", 0.2, "The bumblebee is a bug.", "beebalm")
+    grasshopper = bug("grasshopper", 0.5, "The grasshopper is a bug.", "lettuce")
+    ladybug = bug("ladybug", 0.1, "The ladybug is a bug.", "geranium")
     monarch = bug("monarch", 0.3, "The monarch is a bug.", "milkweed")
-    mantis = bug("mantis", 0.1, "The mantis is a bug.", "tomato")
+    mantis = bug("mantis", 0.4, "The mantis is a bug.", "tomato")
+
+    # Plant
+    beebalm = plant("beebalm", bumblebee, 8, 16)
+    geranium = plant("geranium", ladybug, 10, 18)
+    milkweed = plant("milkweed", monarch, 6, 14)
+    lettuce = plant("lettuce", grasshopper, 2, 10)
+    tomato = plant("tomato", mantis, 4, 12)
 
     # Focus screen
     focusScreen = sprite("./sprites/focusbg.PNG")
