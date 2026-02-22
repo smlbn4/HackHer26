@@ -17,7 +17,7 @@ class timeCurrency:
     def time_spent(self,hours): #helper for buy
         self.value -= hours
 
-    def can_spend(self,hours_required): #helper for buy
+    def can_spend(self, hours_required): #helper for buy
         if self.value - hours_required >= 0:
             return True
         else:

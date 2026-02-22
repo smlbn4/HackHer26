@@ -38,6 +38,17 @@ class button(sprite):
         if action == "buy":
             chosenIndex = plotUI.selectPlot()
             
+            seed = None
+
+            event = pygame.event.wait()
+
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_L:
+                    return
+            
+            plots[chosenIndex].buy_plant
 
         if action == "water":
             chosenIndex = plotUI.selectPlot()
