@@ -1,7 +1,7 @@
 ###
 import pygame
 from sprite import sprite
-from stopwatch import stopwatch
+from keyboardControls import keyboardControls
 ###
 
 class button(sprite):
@@ -31,9 +31,7 @@ class button(sprite):
         if action == "focus":
             focusScreen.visible = True
             unfocusButton.visible = True
-            sw = stopwatch()
-            sw.reset()
-            sw.start()
+            keyboardControls.waitForUnfocus(focusScreen, unfocusButton)
             
         if action == "unfocus":
             return

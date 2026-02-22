@@ -14,9 +14,9 @@ class plotMenu(sprite):
         self.plotSell = None
 
         self.enable("buy")
-        self.disable("water")
-        self.disable("watch")
-        self.disable("sell")
+        self.enable("water")
+        self.enable("watch")
+        self.enable("sell")
 
         self.hide()
 

@@ -7,6 +7,7 @@ from plant import plant
 from bug import bug
 from plotMenu import plotMenu
 from stopwatch import stopwatch
+from timeCurrency import timeCurrency
 #############
 
 
@@ -15,6 +16,7 @@ def main():
     keepRunning = True
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
+    timeBalance = timeCurrency(0)
 
     BGCOLOR = (255, 247, 224)
 
@@ -52,7 +54,6 @@ def main():
     buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
     allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
 
-    
     # Bugs
     bumblebee = bug("bumblebee", 0.5, "The bumblebee is a bug.", "beebalm")
     grasshopper = bug("grasshopper", 0.2, "The grasshopper is a bug.", "lettuce")
@@ -63,7 +64,7 @@ def main():
     # Focus screen
     focusScreen = sprite("./sprites/focusbg.PNG")
     focusScreen.visible = False
-    unfocusButton = button("./sprites/unforcusbutton.PNG", (), "unfocus")
+    unfocusButton = button("./sprites/unfocusbutton.PNG", (0,0), "unfocus")
     unfocusButton.visible = False
     buttons.append(unfocusButton)
     allSprites.extend([focusScreen, unfocusButton])

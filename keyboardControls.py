@@ -1,8 +1,7 @@
 
 ## IMPORTS ##
 import pygame
-import pickle
-import button
+from stopwatch import stopwatch
 #############
 
 class keyboardControls():
@@ -33,5 +32,18 @@ class keyboardControls():
                         pMenu.show(mousePos)
         return True
 
-    def waitForUnfocus(self, sw, focusScreen, unfocusButton):
-        
+    def waitForUnfocus(focusScreen, unfocusButton):
+        sw = stopwatch()
+        sw.reset()
+        sw.start()
+
+        while focusScreen.visible and unfocusButton.visible:
+            mousePos = pygame.mouse.get_pos()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return False
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        if pygame.Rect(unfocusButton.getRect()).collidepoint(mousePos):
+                            sw.stop()
