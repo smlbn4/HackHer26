@@ -22,13 +22,15 @@ def main():
 
     # Start button
     startButton = button.button("./Placeholder Sprites/PLCstartbutton.PNG")
-    startButton.loc = ((canvas.get_width() / 2) - (startButton.get_width() / 2), 10)
+    startButton.loc = ((canvas.get_width() / 2) - (startButton.get_width() / 2), 15)
+    startButton.makeRect()
     allSprites.append(startButton)
     buttons.append(startButton)
 
     # Quit button
-    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG", "quit")
-    quitButton.loc = ((canvas.get_width() - quitButton.get_width() - 10, 10))
+    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
+    quitButton.loc = (canvas.get_width() - quitButton.get_width() - 15, 15)
+    quitButton.makeRect()
     allSprites.append(quitButton)
     buttons.append(quitButton)
 
@@ -58,6 +60,8 @@ def main():
 
         # Process input
         keepRunning = kbReader.processOneEvent(mousePos, buttons)
+
+
 
 if __name__ == "__main__":
     main()
