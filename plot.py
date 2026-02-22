@@ -40,14 +40,14 @@ class plot:
             if self.plot_plant.can_spawn_bugs:
                 pass
             else:
-                print("Error: Plant cannot spawn bugs.")
+                print("Error: Plant cannot spawn bugs, nothing to watch.")
         else:
             print("Error: Plot is empty, no plant to watch.")
 
 
 
 if __name__ == "__main__":
-    flower1 = plant.plant("PLC", "./Placeholder Sprites/testPlant", sale_price=3.0, purchase_price=1.5)
+    flower1 = plant.plant("milkweed", "./milkweed", sale_price=3.0, purchase_price=1.5)
     flower1.water_plant()
     flower1.water_plant()
     flower1.water_plant()
