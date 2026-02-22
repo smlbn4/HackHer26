@@ -10,9 +10,6 @@ from plotMenu import plotMenu
 from stopwatch import stopwatch
 from timeCurrency import timeCurrency
 from currency import currency
-
-import pygame_widgets
-from pygame_widgets.textbox import TextBox
 #############
 
 
@@ -38,7 +35,7 @@ def main():
         print(plant.PLOT_X_LOCS[i], plant.PLANT_Y, plant.PLANT_DIMS[0], plant.PLANT_DIMS[1])
         plotRects.append(e)
 
-    BGCOLOR = (255, 247, 224)
+    BGCOLOR = (155, 172, 140)
 
 
     ## SPRITES ##
@@ -46,16 +43,30 @@ def main():
 
     buttons = []
 
+    # Mist
+    mist = sprite("./sprites/mist.PNG")
+    allSprites.append(mist)
+    
+    # Hours label
+    hoursSprite = sprite("./sprites/hourslabel.PNG")
+    hoursSprite.loc = ((canvas.get_width() / 2) - (hoursSprite.get_width() / 2) + 40, 10)
+    allSprites.append(hoursSprite)
+
+    hoursLabel = pygame.font.SysFont("Textile", 40)
+    hoursLabelSurface = hoursLabel.render(str(timeBalance.get_value()), True, (0, 0, 0))
+    hoursLabelRect = hoursLabelSurface.get_rect()
+    hoursLabelRect.center = (hoursSprite.loc[0] + 215, 135)
+
     # Start button
-    focusButton = button("./Placeholder Sprites/PLCstartbutton.PNG", action = "focus")
-    focusButton.loc = ((canvas.get_width() / 2) - (focusButton.get_width() / 2), 15)
+    focusButton = button("./sprites/focusbutton.PNG", action = "focus")
+    focusButton.loc = ((canvas.get_width() / 2) - (focusButton.get_width() / 2) + 40, 10)
     focusButton.makeRect()
     allSprites.append(focusButton)
     buttons.append(focusButton)
 
     # Quit button
-    quitButton = button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
-    quitButton.loc = (canvas.get_width() - quitButton.get_width() - 15, 15)
+    quitButton = button("./sprites/quitbutton.PNG", action = "quit")
+    quitButton.loc = (canvas.get_width() - quitButton.get_width(), 15)
     quitButton.makeRect()
     allSprites.append(quitButton)
     buttons.append(quitButton)
@@ -71,7 +82,7 @@ def main():
     piggyLabelRect.center = (125, 75)
 
     # Dirt
-    dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
+    dirt = sprite("./sprites/dirt.PNG")
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 20)
     allSprites.append(dirt)
 
@@ -79,7 +90,10 @@ def main():
     for e in plots:
         if e.plot_plant != None:
             allSprites.append(e.plot_plant)
-            print("added plant")
+
+    # Grass
+    grass = sprite("./sprites/grass.PNG")
+    allSprites.append(grass)
 
     # Purchase menu
     shop = sprite("./sprites/shop.PNG")
@@ -116,9 +130,12 @@ def main():
             if s.visible:
                 canvas.blit(s.get_image(), s.get_location())
 
-        # if not sw.running:
-        #     text_surface = font.render(str(coinBalance), True, (0, 0, 0))
-        #     canvas.blit(text_surface, text_rect)
+        if not sw.running:
+            piggySurface = piggyLabel.render(str(coinBalance), True, (0, 0, 0))
+            canvas.blit(piggySurface, piggyLabelRect)
+
+            hoursSurface = hoursLabel.render(str(timeBalance.get_value()), True, (0, 0, 0))
+            canvas.blit(hoursSurface, hoursLabelRect)
         
         # Draw final product
         pygame.display.flip()
