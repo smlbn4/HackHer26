@@ -21,7 +21,6 @@ class plotMenu(sprite):
         self.hide()
 
 
-
     def enable(self, buttonType:str):
         if buttonType == "buy":
             self.plotBuy = button("./Plot Menu Sprites/plotmenubuyenabled.PNG", self.get_location(), "buy")
@@ -57,6 +56,27 @@ class plotMenu(sprite):
             self.plotSell = button("./Plot Menu Sprites/plotmenuselldisabled.PNG")
             self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
 
+
+    def show(self, mousePos:tuple):
+        self.set_position(mousePos)
+
+        self.visible = True
+        
+        self.plotBuy.visible = True
+        self.plotWater.visible = True
+        self.plotWatch.visible = True
+        self.plotSell.visible = True
+
+
+    def hide(self):
+        self.visible = False
+        
+        self.plotBuy.visible = False
+        self.plotWater.visible = False
+        self.plotWatch.visible = False
+        self.plotSell.visible = False
+
+
     def set_position(self, loc:tuple):
         self.loc = loc
 
@@ -65,8 +85,7 @@ class plotMenu(sprite):
         self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 120, 75, 27)
         self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
 
-    def show(self, mousePos:tuple):
-        self.set_position(mousePos)
+
 
         self.visible = True
         self.plotBuy.visible = True
