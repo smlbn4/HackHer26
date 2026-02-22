@@ -3,7 +3,6 @@ from plant import plant
 from currency import currency
 from timeCurrency import timeCurrency
 from bug import bug
-from button import button
 
 class plot:
     
@@ -28,6 +27,7 @@ class plot:
                 revenue = self.plot_plant.get_sale_price()          # Funds based on sell price
                 balance.increase_value(revenue)                     # Add funds to balance
                 self.is_empty = True                                # Set plot to empty
+                
 
             # Plant is not stage 5 - cannot sell
             else:

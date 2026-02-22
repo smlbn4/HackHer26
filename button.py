@@ -2,6 +2,7 @@
 import pygame
 from sprite import sprite
 from keyboardControls import keyboardControls
+from plot import plot
 from plotUI import plotUI
 from plant import plant
 ###
@@ -45,6 +46,7 @@ class button(sprite):
 
             shop.visible = True
             canvas.blit(shop.get_image(), shop.get_location())
+            pygame.display.flip()
 
             while seed == None:
                 for event in pygame.event.get():
@@ -71,6 +73,7 @@ class button(sprite):
         
             shop.visible = False
             canvas.blit(shop.get_image(), shop.get_location())
+            pygame.display.flip()
             
             plots[chosenIndex].buy_plant(coinBalance, seed)
 
@@ -86,6 +89,11 @@ class button(sprite):
 
         if action == "sell":
             chosenIndex = plotUI.selectPlot(plotRects)
+
+            plots[chosenIndex].sell_plant(coinBalance)
+            plots[chosenIndex] = plot()
+
+            pygame.display.flip()
 
 
 

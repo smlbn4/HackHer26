@@ -105,7 +105,7 @@ def main():
         canvas.fill(BGCOLOR)
 
         for e in plots:
-            if e.plot_plant != None:
+            if e.plot_plant != None and not sw.running:
                 allSprites.append(e.plot_plant)
 
         # Draw all sprites
@@ -113,8 +113,9 @@ def main():
             if s.visible:
                 canvas.blit(s.get_image(), s.get_location())
 
-        text_surface = font.render(str(coinBalance), True, (0, 0, 0))
-        canvas.blit(text_surface, text_rect)
+        if not sw.running:
+            text_surface = font.render(str(coinBalance), True, (0, 0, 0))
+            canvas.blit(text_surface, text_rect)
         
         # Draw final product
         pygame.display.flip()
