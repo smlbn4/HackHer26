@@ -5,6 +5,7 @@ from keyboardControls import keyboardControls
 from plot import plot
 from plotUI import plotUI
 from plant import plant
+from bug import bug
 ###
 
 class button(sprite):
@@ -85,6 +86,10 @@ class button(sprite):
 
         if action == "watch":
             chosenIndex = plotUI.selectPlot(plotRects)
+            
+            bug_found = plots[chosenIndex].watch_plant(timeBalance)
+            if isinstance(bug_found, bug):
+                pass
 
 
         if action == "sell":
