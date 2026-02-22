@@ -1,25 +1,32 @@
-import plant
-import currency
+from plant import plant
+from currency import currency
 
 class plot:
-    def __init__(self, plot_plant=None):
+    
+    ## CONSTRUCTOR ##
+    def __init__(self, plot_plant=None):        # Initialized empty
         self.plot_plant = plot_plant
-        if self.plot_plant != None:
-            self.is_empty = False
-        else:
-            self.is_empty = True
+        self.is_empty = False
 
+
+    ## METHODS ##
     def sell_plant(self, balance:currency):
+        # If there is a plant in slot
         if not self.is_empty:
+            # Is mature?
             if self.plot_plant.can_sell_plant():
-                plant.plant.plant_types.remove(str(self.plot_plant))
-                self.plot_plant.reset_stage()
+                plant.plant_types.remove(str(self.plot_plant))      # Remove plant from lost
+                self.plot_plant.reset_stage()                       # Return to stage 1 for next use
 
-                revenue = self.plot_plant.get_sale_price()
-                balance.increase_value(revenue)
-                self.is_empty = True
+                revenue = self.plot_plant.get_sale_price()          # Funds based on sell price
+                balance.increase_value(revenue)                     # Add funds to balance
+                self.is_empty = True                                # Set plot to empty
+
+            # Plant is not stage 5 - cannot sell
             else:
                 print("Error: Plant is not mature, cannot be sold.")
+
+        # Plot has no plant
         else:
             print("Error: Plot is empty, no plant to be sold.")
 
@@ -33,7 +40,7 @@ class plot:
             else:
                 balance.decrease_value(seed_price)
                 self.plot_plant = seed
-                plant.plant.plant_types.append(str(self.plot_plant))
+                plant.plant_types.append(str(self.plot_plant))
                 self.is_empty = False
 
     def watch_plant(self):
