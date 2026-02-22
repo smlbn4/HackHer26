@@ -60,19 +60,20 @@ class plot:
             if not self.is_empty:
                 if self.plot_plant.can_spawn_bugs:
                     if not clock.can_spend(1):
-                        return
+                        return "Not enough time!"
                     else:
                         clock.time_spent(1)
 
                         if random.random() < self.plot_plant.thisBug.probability:
                             self.plot_plant.thisBug.is_found()
+                            print "New bug discovered!"
                             return self.plot_plant.thisBug
                         else:
-                           return
+                           return "All bugs discovered for this species"
                 else:
-                    return
+                    return "Plant is not mature."
             else:
-                return
+                return "Plot is empty!"
 
     def water(self, hours:timeCurrency):
         if hours.can_spend(1):
