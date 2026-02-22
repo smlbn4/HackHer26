@@ -9,6 +9,7 @@ from plot import plot
 from plotMenu import plotMenu
 from stopwatch import stopwatch
 from timeCurrency import timeCurrency
+from currency import currency
 #############
 
 
@@ -18,6 +19,7 @@ def main():
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
     timeBalance = timeCurrency(0)
+    coinBalance = currency(10)
 
     plots       = [None, None, None, None, None]
     for e in plots:
