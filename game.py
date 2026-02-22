@@ -52,7 +52,7 @@ def main():
 
     
     # Bugs
-    bumblebee = bug("bumbleebee", 0.5, "The bumblebee is a bug.", "beebalm")
+    bumblebee = bug("bumblebee", 0.5, "The bumblebee is a bug.", "beebalm")
     grasshopper = bug("grasshopper", 0.2, "The grasshopper is a bug.", "lettuce")
     ladybug = bug("ladybug", 0.4, "The ladybug is a bug.", "geranium")
     monarch = bug("monarch", 0.3, "The monarch is a bug.", "milkweed")
