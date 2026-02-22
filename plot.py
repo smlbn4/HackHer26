@@ -32,6 +32,7 @@ class plot:
             else:
                 balance.decrease_value(seed_price)
                 self.plot_plant = seed
+                plant.plant.plant_types.append(str(self.plot_plant))
                 self.is_empty = False
 
     def watch_plant(self):
@@ -62,6 +63,6 @@ if __name__ == "__main__":
 
     plot1.buy_plant(balance, flower1)
     print(balance)
-
+    
     plot1.sell_plant(balance)
     print(balance)
