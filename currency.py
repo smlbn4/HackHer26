@@ -1,12 +1,12 @@
 class currency:
-    def __init__(self, value):
+    def __init__(self, value:float = 0):
         self.value = value
 
-    def increase_value(self, x):
-        self.value += x
+    def increase_value(self, amt):
+        self.value += amt
 
-    def decrease_value(self, x):
-        self.value -= x
+    def decrease_value(self, amt):
+        self.value -= amt
 
     def get_value(self):
         return self.value
@@ -16,5 +16,8 @@ class currency:
             return True
         else:
             return False
+        
+    def __str__(self):
+        return f"${self.value}"
         
         

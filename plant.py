@@ -1,36 +1,59 @@
 from sprite import sprite
 class plant(sprite):
-    numPlants = 0
+    ## All plants should be 127 x 197 px ##
+        
+    # Possible x locations
+    PLOT_X_LOCS = [58, 154, 260, 366, 472, 578]
+
+    PLANT_Y = 350   # Y for all plants
+    plant_types = []
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, img_folder:str, bugs = [], price:float = 0.0):
+    def __init__(self, type:str, bugs = [], purchase_price:float = 0.0, sale_price:float = 0.0):
         self.stage = 1
         self.type = type
-        self.img_folder = img_folder
         super().__init__(self.get_path())
 
+        self.can_spawn_bugs = False
         self.bugs = bugs
-        self.price = price
+        self.purchase_price = purchase_price
+        self.sale_price = sale_price
+        plant.plant_types.append(str(self))
 
     def water_plant(self):
         if self.stage < 5:
             self.stage += 1
+        else:
+            return
+
+        if self.stage == 5:
+            self.can_spawn_bugs = True
 
         super().__init__(self.get_path())
 
     def get_path(self):
-        return f"{self.img_folder}/{self.type}stage{self.stage}.PNG"
+        return f"{self.type}/{self.type}stage{self.stage}.PNG"
 
     def can_sell_plant(self):
         if self.stage == 5:
             return True
         else:
             return False
-        
-    def get_price(self):
-        return self.price
+
+    def get_purchase_price(self):
+        return self.purchase_price
+
+    def get_sale_price(self):
+        return self.sale_price
     
+    def reset_stage(self):
+        self.stage = 1
+   
+    def __str__(self):
+        return self.type
+
 if __name__ == "__main__":
-    daisy = plant("PLC", "./Placeholder Sprites/testPlant")
-    daisy.water_plant()
-    print(daisy.get_img())
+    flower1 = plant("beebalm")
+    flower2 = plant("geranium")
+
+
