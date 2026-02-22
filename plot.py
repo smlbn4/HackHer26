@@ -22,7 +22,7 @@ class plot:
         if not self.is_empty:
             # Is mature?
             if self.plot_plant.can_sell_plant():
-                plant.plant_types.remove(str(self.plot_plant))      # Remove plant from lost
+                plant.plant_types.remove(self.plot_plant)      # Remove plant from lost
                 self.plot_plant.reset_stage()                       # Return to stage 1 for next use
 
                 revenue = self.plot_plant.get_sale_price()          # Funds based on sell price
@@ -47,7 +47,7 @@ class plot:
             else:
                 balance.decrease_value(seed_price)
                 self.plot_plant = seed
-                plant.plant_types.append(str(self.plot_plant))
+                plant.plant_types.append(self.plot_plant)
                 self.is_empty = False
 
     def watch_plant(self, clock:timeCurrency):

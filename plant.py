@@ -26,11 +26,7 @@ class plant(sprite):
         super().__init__(self.get_path())       # Sprite superclass
 
         self.can_spawn_bugs = False             # Can't spawn bugs until stage 5
-<<<<<<< HEAD
         self.bug = bug                       # Bugs to spawn
-=======
-        self.bug = bug                        # Bugs to spawn
->>>>>>> 94cfc4a9f64e9fffe8f319f125fbaa8ff4a9c18e
         self.purchase_price = purchase_price    # Purchase price from buy tab
         self.sale_price = sale_price            # Sell price at stage 5
         plant.plant_types.append(str(self))     # Add plant to list of all plants
