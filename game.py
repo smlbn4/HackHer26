@@ -4,6 +4,7 @@ from keyboardControls import keyboardControls
 from sprite import sprite
 from button import button
 from plant import plant
+from plotMenu import plotMenu
 #############
 
 def main():
@@ -34,7 +35,8 @@ def main():
     buttons.append(quitButton)
 
     # Plot menu
-    plotMenu = sprite("./Plot Menu Sprites/plotmenubase.PNG")
+    pMenu = plotMenu("./Plot Menu Sprites/plotmenubase.PNG")
+    pMenu
     
 
     # Dirt

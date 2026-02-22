@@ -19,6 +19,8 @@ class sprite():
         self.width =       pygame.Surface.get_width(self.surface)
         self.height =      pygame.Surface.get_height(self.surface)
 
+        self.visible =     True
+
 
     ## GETTERS ##
     # Surface object

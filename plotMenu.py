@@ -18,6 +18,9 @@ class plotMenu(sprite):
         self.disable("watch")
         self.disable("sell")
 
+        self.visible = False
+
+
 
     def enable(self, buttonType:str):
         if buttonType == "buy":
@@ -61,3 +64,7 @@ class plotMenu(sprite):
         self.plotWater.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
         self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
         self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+
+    def show(self, mousePos:tuple):
+        self.set_position(mousePos)
+
