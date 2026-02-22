@@ -19,7 +19,7 @@ class page(sprite):
             self.description = "???"
     
     def __str__(self):
-        return f"Name: {self.name.capitalize()}\nStatus: {self.status}\nFavorite Plant: {self.plant.capitalize()}\nDescription: {self.description}"
+        return f"Name: {self.name.capitalize()}\nStatus: {self.status}\nFavorite Plant: {self.plant.capitalize()}\nFun Fact: {self.description}"
 
 
     
