@@ -46,8 +46,7 @@ class plant(sprite):
 
         print(f"{index}")
 
-    def water_plant(self, hours:timeCurrency):
-        if hours.can_spend(1):
+    def water_plant(self):
             if self.stage < 5:
                 self.stage += 1
             else:
@@ -57,8 +56,6 @@ class plant(sprite):
                 self.can_spawn_bugs = True
 
             super().__init__(self.get_path())
-        else:
-            return
 
     def get_path(self):
         return f"{self.type}/{self.type}stage{self.stage}.PNG"
