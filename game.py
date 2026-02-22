@@ -4,6 +4,7 @@ from keyboardControls import keyboardControls
 from sprite import sprite
 from button import button
 from plant import plant
+from bug import bug
 from plotMenu import plotMenu
 #############
 
@@ -49,6 +50,9 @@ def main():
     testPlant = plant("milkweed")
     allSprites.append(testPlant)
     
+    # Bugs
+    bumblebee = 
+
     
     #############
 
