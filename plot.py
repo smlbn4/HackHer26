@@ -15,12 +15,12 @@ class plot:
         if not self.is_empty:
             # Is mature?
             if self.plot_plant.can_sell_plant():
-                plant.plant_types.remove(str(self.plot_plant))
-                self.plot_plant.reset_stage()
+                plant.plant_types.remove(str(self.plot_plant))      # Remove plant from lost
+                self.plot_plant.reset_stage()                       # Return to stage 1 for next use
 
-                revenue = self.plot_plant.get_sale_price()
-                balance.increase_value(revenue)
-                self.is_empty = True
+                revenue = self.plot_plant.get_sale_price()          # Funds based on sell price
+                balance.increase_value(revenue)                     # Add funds to balance
+                self.is_empty = True                                # Set plot to empty
 
             # Plant is not stage 5 - cannot sell
             else:
