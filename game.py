@@ -18,7 +18,7 @@ def main():
     keepRunning = True
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
-    timeBalance = timeCurrency(0)
+    timeBalance = timeCurrency(999)
     coinBalance = currency(10)
 
     plots       = []
@@ -89,7 +89,6 @@ def main():
         for e in plots:
             if e.plot_plant != None:
                 allSprites.append(e.plot_plant)
-                print(f"added {e.plot_plant}")
 
         # Draw all sprites
         for s in allSprites:
@@ -108,6 +107,7 @@ def main():
             keepRunning = False
         if result == "focusstart":
             sw.start()
+
         elif result == "focusstop":
             sw.stop()
 

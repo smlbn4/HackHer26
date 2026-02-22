@@ -22,7 +22,7 @@ class plot:
         if not self.is_empty:
             # Is mature?
             if self.plot_plant.can_sell_plant():
-                plant.plant_types.remove(self.plot_plant)      # Remove plant from lost
+                plant.plant_types.remove(self.plot_plant)           # Remove plant from lost
                 self.plot_plant.reset_stage()                       # Return to stage 1 for next use
 
                 revenue = self.plot_plant.get_sale_price()          # Funds based on sell price

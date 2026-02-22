@@ -13,12 +13,9 @@ class plant(sprite):
     PLANT_Y = 350   # Y for all plants
     plant_types = []
 
-    plantCount = -1
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, purchase_price:float = 0.0, sale_price:float = 0.0, index = plantCount):
-
-        plant.plantCount += 1                   # Increases plant count
+    def __init__(self, type:str, purchase_price:float = 0.0, sale_price:float = 0.0, index = len(plant_types) - 1):
 
         self.stage = 1                          # Initial stage
         self.type = type   
@@ -46,6 +43,8 @@ class plant(sprite):
         # Location based on past planted 
         self.loc = (plant.PLOT_X_LOCS[index], plant.PLANT_Y)
         print(self.loc)
+
+        print(f"{index}")
 
     def water_plant(self, hours:timeCurrency):
         if hours.can_spend(1):
