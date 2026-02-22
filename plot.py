@@ -45,25 +45,35 @@ class plot:
         else:
             print("Error: Plot is empty, no plant to watch.")
 
-
+    def water(self):
+        if not self.is_empty:
+            self.plot_plant.water_plant()
+        else:
+            print("Error: Plot is empty, no plant to water.")
 
 if __name__ == "__main__":
-    flower1 = plant.plant("milkweed", "./milkweed", sale_price=3.0, purchase_price=1.5)
-    flower1.water_plant()
-    flower1.water_plant()
-    flower1.water_plant()
-    flower1.water_plant()
+    milkweed = plant.plant("milkweed", "./milkweed", sale_price=3.0, purchase_price=1.5)
+    geranium = plant.plant("geranium", "./geranium", sale_price=4.0, purchase_price=2.0)
 
     balance = currency.currency(0)
     print(balance)
 
-    plot1 = plot(flower1)
+    plot1 = plot(milkweed)
+    plot1.water()
+    plot1.water()
+    plot1.water()
+    plot1.water()
 
     plot1.sell_plant(balance)
     print(balance)
 
-    plot1.buy_plant(balance, flower1)
+    plot1.buy_plant(balance, geranium)
     print(balance)
+
+    plot1.water()
+    plot1.water()
+    plot1.water()
+    plot1.water()
     
     plot1.sell_plant(balance)
     print(balance)
