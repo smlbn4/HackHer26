@@ -24,7 +24,6 @@ class keyboardControls():
                 if event.button == 1:
                     for b in buttons:
                         if pygame.Rect(b.getRect()).collidepoint(mousePos) and b.visible:
-                            print("clicked")
                             return b.buttonPressed(b.getAction(), canvas, focusScreen, unfocusButton, plots, coinBalance, plotRects, timeBalance, shop = shop, allSprites = allSprites)
                 elif event.button == 3:
                     if pMenu.visible:

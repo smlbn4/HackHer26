@@ -128,7 +128,7 @@ def main():
 
         # Draw all sprites
         for s in allSprites:
-            if s.visible:
+            if s.visible and not sw.running:
                 canvas.blit(s.get_image(), s.get_location())
 
         if not sw.running:
