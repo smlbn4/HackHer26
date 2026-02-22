@@ -41,14 +41,15 @@ def main():
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
     allSprites.append(dirt)
 
-    # Plot menu
-    pMenu = plotMenu()
-    buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu. plotSell])
-    allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu. plotSell])
-
     # Plant
     testPlant = plant("milkweed")
     allSprites.append(testPlant)
+
+    # Plot menu
+    pMenu = plotMenu()
+    buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
+    allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
+
     
     # Bugs
     bumblebee = bug("bumbleebee", 0.5, "The bumblebee is a bug.", "beebalm")
