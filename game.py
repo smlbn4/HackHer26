@@ -10,6 +10,9 @@ from plotMenu import plotMenu
 from stopwatch import stopwatch
 from timeCurrency import timeCurrency
 from currency import currency
+
+import pygame_widgets
+from pygame_widgets.textbox import TextBox
 #############
 
 
