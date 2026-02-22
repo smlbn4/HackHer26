@@ -5,7 +5,7 @@ from timeCurrency import timeCurrency
 from bug import bug
 from button import button
 
-class plot(button):
+class plot():
     
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
