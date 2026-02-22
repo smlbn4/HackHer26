@@ -5,6 +5,7 @@ from sprite import sprite
 from button import button
 from plant import plant
 from bug import bug
+from plot import plot
 from plotMenu import plotMenu
 from stopwatch import stopwatch
 from timeCurrency import timeCurrency
@@ -17,6 +18,9 @@ def main():
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
     timeBalance = timeCurrency(0)
+    plots       = [None, None, None, None, None]
+    for e in plots:
+        e = plot()
 
     BGCOLOR = (255, 247, 224)
 
@@ -64,9 +68,10 @@ def main():
     # Focus screen
     focusScreen = sprite("./sprites/focusbg.PNG")
     focusScreen.visible = False
-    unfocusButton = button("./sprites/unfocusbutton.PNG", (0,0), "unfocus")
+    unfocusButton = button("./sprites/unfocusbutton.PNG", (0, 0), "unfocus")
+    unfocusButton.pressRect = pygame.rect.Rect((129, 316), (383, 173))
     unfocusButton.visible = False
-    buttons.append(unfocusButton)
+    buttons.insert(0, unfocusButton)
     allSprites.extend([focusScreen, unfocusButton])
     
     #############
@@ -85,7 +90,23 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        keepRunning = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton)
+        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton)
+
+        if result == False:
+            keepRunning = False
+        if result == "focusstart":
+            sw.start()
+        elif result == "focusstop":
+            sw.stop()
+
+            # Take away the focus UI
+            focusScreen.visible = False
+            unfocusButton.visible = False
+
+            # Add spent time to piggy bank
+            timeBalance.add_hours(sw.elapsedTime())
+
+            sw.reset()
 
 
 

@@ -31,12 +31,11 @@ class button(sprite):
         if action == "focus":
             focusScreen.visible = True
             unfocusButton.visible = True
-            keyboardControls.waitForUnfocus(focusScreen, unfocusButton)
-            
+            return "focusstart"
         if action == "unfocus":
-            return
+            return "focusstop"
         if action == "buy":
-            print("buy")
+            return
         if action == "water":
             print("water")
         if action == "watch":

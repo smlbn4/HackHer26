@@ -10,23 +10,18 @@ class stopwatch:
 
     def start(self): #return nothing
         self.start_time = time.time()
-        print(self.start_time)
         self.running = True
 
     def stop(self): #return nothing
-        self.stop_time = time.time()
-        print(self.stop_time)
         self.running = False
+        self.stop_time = time.time()
 
     def elapsedTime(self): #return time elapsed
-        self.elapsed_time = (self.stop_time - self.start_time)/360
-        return self.elapsed_time
+        return (self.stop_time - self.start_time)/360
 
     def reset(self): #return nothing
         self.start_time = 0
-        self.stop_time = 0
-        self.elapsed_time = 0
-        print(self.start_time, self.stop_time,self.elapsed_time)
+        self.running = False
 
 
 if __name__ == "__main__":
