@@ -6,8 +6,7 @@ class plot:
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
         self.plot_plant = plot_plant
-        self.is_empty = False
-
+        self.is_empty = True
 
     ## METHODS ##
     def sell_plant(self, balance:currency):
@@ -59,20 +58,13 @@ class plot:
             print("Error: Plot is empty, no plant to water.")
 
 if __name__ == "__main__":
-    milkweed = plant.plant("milkweed", sale_price=3.0, purchase_price=1.5)
-    geranium = plant.plant("geranium", sale_price=4.0, purchase_price=2.0)
+    milkweed = plant("milkweed", sale_price=3.0, purchase_price=1.5)
+    geranium = plant("geranium", sale_price=4.0, purchase_price=2.0)
 
-    balance = currency.currency(0)
+    balance = currency(20)
     print(balance)
 
-    plot1 = plot(milkweed)
-    plot1.water()
-    plot1.water()
-    plot1.water()
-    plot1.water()
-
-    plot1.sell_plant(balance)
-    print(balance)
+    plot1 = plot()
 
     plot1.buy_plant(balance, milkweed)
     print(balance)
