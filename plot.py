@@ -66,7 +66,7 @@ class plot:
 
                         if random.random() < self.plot_plant.thisBug.probability:
                             self.plot_plant.thisBug.is_found()
-                            print "New bug discovered!"
+                            print("New bug discovered!")
                             return self.plot_plant.thisBug
                         else:
                            return "All bugs discovered for this species"
