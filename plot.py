@@ -67,7 +67,7 @@ if __name__ == "__main__":
     plot1.sell_plant(balance)
     print(balance)
 
-    plot1.buy_plant(balance, geranium)
+    plot1.buy_plant(balance, milkweed)
     print(balance)
 
     plot1.water()

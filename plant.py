@@ -41,7 +41,7 @@ class plant(sprite):
         return self.sale_price
     
     def reset_stage(self):
-        self.stage = 0
+        self.stage = 1
    
     def __str__(self):
         return self.type
