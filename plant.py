@@ -47,15 +47,15 @@ class plant(sprite):
         print(f"{index}")
 
     def water_plant(self):
-            if self.stage < 5:
-                self.stage += 1
-            else:
-                return
+        if self.stage < 5:
+            self.stage += 1
+        else:
+            return
 
-            if self.stage == 5:
-                self.can_spawn_bugs = True
+        if self.stage == 5:
+            self.can_spawn_bugs = True
 
-            super().__init__(self.get_path())
+        super().__init__(self.get_path(), self.loc)
 
     def get_path(self):
         return f"{self.type}/{self.type}stage{self.stage}.PNG"

@@ -14,6 +14,8 @@ from currency import currency
 
 
 def main():
+    pygame.init()
+
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
     kbReader    = keyboardControls("ESCAPE")
@@ -55,6 +57,16 @@ def main():
     allSprites.append(quitButton)
     buttons.append(quitButton)
 
+    # Piggybank
+    piggyBank = sprite("./sprites/piggybank.PNG")
+    piggyBank.loc = (5, 5)
+    allSprites.append(piggyBank)
+
+    font = pygame.font.SysFont("Textile", 52)
+    text_surface = font.render(str(coinBalance), True, (0, 0, 0))
+    text_rect = text_surface.get_rect()
+    text_rect.center = (125, 75)
+
     # Dirt
     dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
@@ -94,6 +106,9 @@ def main():
         for s in allSprites:
             if s.visible:
                 canvas.blit(s.get_image(), s.get_location())
+
+        text_surface = font.render(str(coinBalance), True, (0, 0, 0))
+        canvas.blit(text_surface, text_rect)
         
         # Draw final product
         pygame.display.flip()
@@ -101,7 +116,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects)
+        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects, timeBalance = timeBalance)
 
         if result == False:
             keepRunning = False

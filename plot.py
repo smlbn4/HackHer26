@@ -71,6 +71,7 @@ class plot:
     def water(self, hours:timeCurrency):
         if hours.can_spend(1):
             if not self.is_empty:
+                hours.time_spent(1)
                 self.plot_plant.water_plant()
             else:
                 return

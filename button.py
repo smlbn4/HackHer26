@@ -24,7 +24,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None):
+    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None):
         if action == "none":
             print("none")
             return True
@@ -39,7 +39,6 @@ class button(sprite):
         
         # Buy in target plot
         if action == "buy":
-            "activated click yay"
             chosenIndex = plotUI.selectPlot(plotRects)
             
             seed = None
@@ -70,15 +69,17 @@ class button(sprite):
             plots[chosenIndex].buy_plant(coinBalance, seed)
 
         if action == "water":
-            chosenIndex = plotUI.selectPlot()
+            chosenIndex = plotUI.selectPlot(plotRects)
+
+            plots[chosenIndex].water(timeBalance)
 
 
         if action == "watch":
-            chosenIndex = plotUI.selectPlot()
+            chosenIndex = plotUI.selectPlot(plotRects)
 
 
         if action == "sell":
-            chosenIndex = plotUI.selectPlot()
+            chosenIndex = plotUI.selectPlot(plotRects)
 
 
 
