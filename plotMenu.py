@@ -58,7 +58,7 @@ class plotMenu(sprite):
 
 
     def show(self, mousePos:tuple):
-        self.set_position(mousePos)
+        self.move(mousePos)
 
         self.visible = True
         
@@ -77,13 +77,17 @@ class plotMenu(sprite):
         self.plotSell.visible = False
 
 
-    def set_position(self, newLoc:tuple):
+    def move(self, newLoc:tuple):
         self.loc = newLoc
 
-        self.plotBuy.move((self.get_location()[0], self.get_location()[1]))
-        self.plotWater.move((self.get_location()[0], self.get_location()[1]))
-        self.plotWatch.move((self.get_location()[0], self.get_location()[1]))
-        self.plotSell.move((self.get_location()[0], self.get_location()[1]))
+        self.plotBuy.pressRect = (self.get_location()[0] + 56, self.get_location()[1] + 46, 80, 28)
+        self.plotBuy.loc = newLoc
+        self.plotWater.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+        self.plotWater.loc = newLoc
+        self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 120, 75, 27)
+        self.plotWatch.loc = newLoc
+        self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 153, 75, 30)
+        self.plotSell.loc = newLoc
 
 
     def hide(self):

@@ -13,7 +13,8 @@ class plotUI():
                     if event.button == 1:
                         i = 0
                         for p in plotRects:
-                            if p.colliderect(mousePos):
+                            p = pygame.Rect(p)
+                            if p.collidepoint(mousePos):
                                 return i
                             else:
                                 i += 1
