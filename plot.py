@@ -54,35 +54,26 @@ class plot:
             if not self.is_empty:
                 if self.plot_plant.can_spawn_bugs:
                     if not clock.can_spend(1):
-                        print("Not enough hours!")
+                        return
                     else:
                         clock.time_spent(1)
-                        unfound_bugs = []
 
-                        for dude in self.plot_plant.bugs:
-                            if not dude.found:
-                                unfound_bugs.append(dude)
-
-                        if len(unfound_bugs) == 0:
-                            print("All bugs discovered!!!!")
+                        if random.random() < self.plot_plant.thisBug.probability:
+                            self.plot_plant.thisBug.is_found()
+                            return self.plot_plant.thisBug
                         else:
-                            for dude in unfound_bugs:
-                                if random.random() < dude.probability:
-                                    print(f"New Discovery!!! \n{dude.type.capitalize()}")
-                                else:
-                                    print("No little dudes found :(")
-
+                           return
                 else:
-                    print("Error: Plant cannot spawn bugs, nothing to watch.")
+                    return
             else:
-                print("Error: Plot is empty, no plant to watch.")
+                return
 
     def water(self, hours:timeCurrency):
         if hours.can_spend(1):
             if not self.is_empty:
                 self.plot_plant.water_plant()
             else:
-                print("Error: Plot is empty, no plant to water.")
+                return
 
 if __name__ == "__main__":
     bumblebee = bug("bumblebee", 0.4, "milkweed")
