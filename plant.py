@@ -16,7 +16,7 @@ class plant(sprite):
     plantCount = -1
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, purchase_price:float = 0.0, sale_price:float = 0.0):
+    def __init__(self, type:str, purchase_price:float = 0.0, sale_price:float = 0.0, index = plantCount):
 
         plant.plantCount += 1                   # Increases plant count
 
@@ -33,7 +33,7 @@ class plant(sprite):
         elif type == "tomato":
             self.thisBug = bug("mantis", "Did you know mantises have 5 eyes?", self.type)
         elif type == "milkweed":
-            self.thisBug = bug("milkweed", "Did you know monarchs are poisonous?", self.type)
+            self.thisBug = bug("monarch", "Did you know monarchs are poisonous?", self.type)
         elif type == "beebalm":
             self.thisBug = bug("bumblebee", "Did you know bumblebees dance to tell directions?", self.type)
         else:
@@ -44,7 +44,8 @@ class plant(sprite):
         plant.plant_types.append(str(self))     # Add plant to list of all plants
 
         # Location based on past planted 
-        self.loc = (plant.PLOT_X_LOCS[plant.plantCount], plant.PLANT_Y)
+        self.loc = (plant.PLOT_X_LOCS[index], plant.PLANT_Y)
+        print(self.loc)
 
     def water_plant(self, hours:timeCurrency):
         if hours.can_spend(1):

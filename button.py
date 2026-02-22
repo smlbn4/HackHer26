@@ -44,27 +44,28 @@ class button(sprite):
             
             seed = None
 
-            event = pygame.event.wait()
-
             while seed == None:
-                if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_l:
-                        seed = plant("lettuce", 2, 5)
-                        break
-                    elif event.key == pygame.K_t:
-                        seed = plant("tomato", 4, 10)
-                        break
-                    elif event.key == pygame.K_m:
-                        seed = plant("milkweed", 6, 15)
-                        break
-                    elif event.key == pygame.K_b:
-                        seed = plant("beebalm", 8, 20)
-                        break
-                    elif event.key == pygame.K_g:
-                        seed = plant("geranium", 10, 25)
-                        break
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                    elif event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_l:
+                            seed = plant("lettuce", 2, 5, chosenIndex)
+                            continue
+                        elif event.key == pygame.K_t:
+                            seed = plant("tomato", 4, 10, chosenIndex)
+                            continue
+                        elif event.key == pygame.K_m:
+                            seed = plant("milkweed", 6, 15, chosenIndex)
+                            continue
+                        elif event.key == pygame.K_b:
+                            seed = plant("beebalm", 8, 20, chosenIndex)
+                            continue
+                        elif event.key == pygame.K_g:
+                            seed = plant("geranium", 10, 25, chosenIndex)
+                            continue
+
+            print("made it past loop")
             
             plots[chosenIndex].buy_plant(coinBalance, seed)
 

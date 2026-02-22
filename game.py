@@ -60,6 +60,12 @@ def main():
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
     allSprites.append(dirt)
 
+    # Plants
+    for e in plots:
+        if e.plot_plant != None:
+            allSprites.append(e.plot_plant)
+            print("added plant")
+
     # Plot menu
     pMenu = plotMenu()
     buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
@@ -79,6 +85,11 @@ def main():
 
     while keepRunning:
         canvas.fill(BGCOLOR)
+
+        for e in plots:
+            if e.plot_plant != None:
+                allSprites.append(e.plot_plant)
+                print(f"added {e.plot_plant}")
 
         # Draw all sprites
         for s in allSprites:
