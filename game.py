@@ -78,6 +78,12 @@ def main():
             allSprites.append(e.plot_plant)
             print("added plant")
 
+    # Purchase menu
+    shop = sprite("./sprites/shop.PNG")
+    shop.loc = (0, canvas.get_height() - shop.height)
+    shop.visible = False
+    allSprites.append(shop)
+
     # Plot menu
     pMenu = plotMenu()
     buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
@@ -116,7 +122,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects, timeBalance = timeBalance)
+        result = kbReader.processOneEvent(canvas, mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects, timeBalance = timeBalance, shop = shop)
 
         if result == False:
             keepRunning = False

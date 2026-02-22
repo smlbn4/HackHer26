@@ -24,7 +24,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None):
+    def buttonPressed(self, action = "none", canvas = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None):
         if action == "none":
             print("none")
             return True
@@ -42,6 +42,9 @@ class button(sprite):
             chosenIndex = plotUI.selectPlot(plotRects)
             
             seed = None
+
+            shop.visible = True
+            canvas.blit(shop.get_image(), shop.get_location())
 
             while seed == None:
                 for event in pygame.event.get():
@@ -65,6 +68,9 @@ class button(sprite):
                             continue
 
             print("made it past loop")
+        
+            shop.visible = False
+            canvas.blit(shop.get_image(), shop.get_location())
             
             plots[chosenIndex].buy_plant(coinBalance, seed)
 
