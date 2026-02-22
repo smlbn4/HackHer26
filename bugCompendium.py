@@ -20,17 +20,15 @@ class bugCompendium(button):
 
 
 if __name__ == "__main__":
-    bumblebee = bug("bumblebee", 0.3, "The bumblebee is a bug.")
+    bumblebee = bug("bumblebee", 0.5, "The bumblebee is a bug.", "beebalm")
     bumblebee.is_found()
-    grasshopper = bug("grasshopper", 0.3, "The grasshopper is a bug.")
+    grasshopper = bug("grasshopper", 0.2, "The grasshopper is a bug.", "lettuce")
 
     compendium = bugCompendium()
     print()
-    print(compendium.page.get_description())
-    print(compendium.page.get_name())
+    print(str(compendium.page))
     print()
 
     compendium.turn_page_forward()
-    print(compendium.page.get_description())
-    print(compendium.page.get_name())
+    print(str(compendium.page))
     print()

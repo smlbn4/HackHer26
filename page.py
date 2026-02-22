@@ -9,29 +9,17 @@ class page(sprite):
             # self.bug_image = page_bug.get_path()
             self.status = "Found"
             self.name = page_bug.type
-            self.flower = page_bug.flower
+            self.plant = page_bug.plant
             self.description = page_bug.description
         else:
             # self.bug_image =
             self.status = "Not Found"
             self.name = "???"
-            self.flower = "???"
+            self.plant = "???"
             self.description = "???"
-
-    def get_name(self):
-        return self.name
     
-    def get_status(self):
-        return self.status
-    
-    def get_description(self):
-        return self.description
-    
-    def get_image(self):
-        return self.image
-    
-    def get_flower(self):
-        return self.flower
+    def __str__(self):
+        return f"Name: {self.name}\nStatus: {self.status}\nFavorite Plant: {self.plant}\n{self.description}"
 
 
     

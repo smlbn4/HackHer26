@@ -3,12 +3,12 @@ from sprite import sprite
 class bug(sprite):
     bug_types = []
 
-    def __init__(self, type:str, probability, description, flower:str):
+    def __init__(self, type:str, probability, description, plant=""):
         self.found = False
         self.type = type
         self.probability = probability
         self.description = description
-        self.flower = flower
+        self.plant = plant
         super().__init__(self.get_path())
 
         bug.bug_types.append(self)
