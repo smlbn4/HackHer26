@@ -67,9 +67,9 @@ class plot:
                         else:
                             for dude in unfound_bugs:
                                 if random.random() < dude.probability:
-                                    print(f"New Discovery!!! \n{dude.type}")
+                                    print(f"New Discovery!!! \n{dude.type.capitalize()}")
                                 else:
-                                    print("no little dudes found :(")
+                                    print("No little dudes found :(")
 
                 else:
                     print("Error: Plant cannot spawn bugs, nothing to watch.")
