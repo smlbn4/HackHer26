@@ -26,7 +26,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", canvas = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None):
+    def buttonPressed(self, action = "none", canvas = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None, allSprites = None):
         if action == "none":
             print("none")
             return True
@@ -89,7 +89,8 @@ class button(sprite):
             
             bug_found = plots[chosenIndex].watch_plant(timeBalance)
             if isinstance(bug_found, bug):
-                pass
+                allSprites.append(bug_found)
+                pygame.display.flip()
 
 
         if action == "sell":

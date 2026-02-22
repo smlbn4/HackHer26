@@ -116,9 +116,9 @@ def main():
             if s.visible:
                 canvas.blit(s.get_image(), s.get_location())
 
-        if not sw.running:
-            text_surface = font.render(str(coinBalance), True, (0, 0, 0))
-            canvas.blit(text_surface, text_rect)
+        # if not sw.running:
+        #     text_surface = font.render(str(coinBalance), True, (0, 0, 0))
+        #     canvas.blit(text_surface, text_rect)
         
         # Draw final product
         pygame.display.flip()
@@ -126,7 +126,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        result = kbReader.processOneEvent(canvas, mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects, timeBalance = timeBalance, shop = shop)
+        result = kbReader.processOneEvent(canvas, mousePos, buttons, pMenu, focusScreen, unfocusButton, plots=plots, coinBalance = coinBalance, plotRects=plotRects, timeBalance = timeBalance, shop = shop, allSprites = allSprites)
 
         if result == False:
             keepRunning = False

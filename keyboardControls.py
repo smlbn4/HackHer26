@@ -12,7 +12,7 @@ class keyboardControls():
         self.quitKey = pygame.key.key_code(quitKey)
         
 
-    def processOneEvent(self, canvas = None, mousePos = None, buttons = None, pMenu = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None):
+    def processOneEvent(self, canvas = None, mousePos = None, buttons = None, pMenu = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None, allSprites = None):
         pressedKeys =  pygame.key.get_pressed()
         if pressedKeys[self.quitKey]:
             return False
@@ -25,7 +25,7 @@ class keyboardControls():
                     for b in buttons:
                         if pygame.Rect(b.getRect()).collidepoint(mousePos) and b.visible:
                             print("clicked")
-                            return b.buttonPressed(b.getAction(), canvas, focusScreen, unfocusButton, plots, coinBalance, plotRects, timeBalance, shop = shop)
+                            return b.buttonPressed(b.getAction(), canvas, focusScreen, unfocusButton, plots, coinBalance, plotRects, timeBalance, shop = shop, allSprites = allSprites)
                 elif event.button == 3:
                     if pMenu.visible:
                         pMenu.hide()
