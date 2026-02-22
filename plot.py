@@ -77,11 +77,12 @@ class plot:
             else:
                 print("Error: Plot is empty, no plant to watch.")
 
-    def water(self):
-        if not self.is_empty:
-            self.plot_plant.water_plant()
-        else:
-            print("Error: Plot is empty, no plant to water.")
+    def water(self, hours:timeCurrency):
+        if hours.can_spend(1):
+            if not self.is_empty:
+                self.plot_plant.water_plant()
+            else:
+                print("Error: Plot is empty, no plant to water.")
 
 if __name__ == "__main__":
     bumblebee = bug("bumblebee", 0.4, "milkweed")
