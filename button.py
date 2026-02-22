@@ -22,7 +22,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action, focusScreen, unfocusButton):
+    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None):
         if action == "none":
             print("none")
             return True
@@ -30,6 +30,11 @@ class button(sprite):
             return False
         if action == "focus":
             focusScreen.visible = True
+            unfocusButton.visible = True
+            sw = stopwatch()
+            sw.reset()
+            sw.start()
+            
         if action == "unfocus":
             return
         if action == "buy":

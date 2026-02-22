@@ -3,7 +3,7 @@ from sprite import sprite
 class bug(sprite):
     bug_types = []
 
-    def __init__(self, type:str, probability, description, plant=""):
+    def __init__(self, type:str, probability, description="", plant=""):
         self.found = False
         self.type = type
         self.probability = probability

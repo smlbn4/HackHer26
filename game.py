@@ -65,6 +65,8 @@ def main():
     focusScreen.visible = False
     unfocusButton = button("./sprites/unforcusbutton.PNG", (), "unfocus")
     unfocusButton.visible = False
+    buttons.append(unfocusButton)
+    allSprites.extend([focusScreen, unfocusButton])
     
     #############
 

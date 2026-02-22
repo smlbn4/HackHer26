@@ -50,10 +50,10 @@ class plot(button):
                 plant.plant_types.append(str(self.plot_plant))
                 self.is_empty = False
 
-    def watch_plant(self,clock:timeCurrency):
+    def watch_plant(self, clock:timeCurrency):
             if not self.is_empty:
                 if self.plot_plant.can_spawn_bugs:
-                    if not clock.can_Spend(1):
+                    if not clock.can_spend(1):
                         print("Not enough hours!")
                     else:
                         clock.time_spent(1)
@@ -68,9 +68,9 @@ class plot(button):
                         else:
                             for dude in unfound_bugs:
                                 if random.random() < dude.probability:
-                                    print(f"New Discovery!!! \n{dude.type}")
+                                    print(f"New Discovery!!! \n{dude.type.capitalize()}")
                                 else:
-                                    print("no little dudes found :(")
+                                    print("No little dudes found :(")
 
                 else:
                     print("Error: Plant cannot spawn bugs, nothing to watch.")
@@ -84,13 +84,22 @@ class plot(button):
             print("Error: Plot is empty, no plant to water.")
 
 if __name__ == "__main__":
-    milkweed = plant("milkweed", sale_price=3.0, purchase_price=1.5)
+    bumblebee = bug("bumblebee", 0.4, "milkweed")
+
+    milkweed = plant("milkweed", bugs=[bumblebee], sale_price=3.0, purchase_price=1.5)
     geranium = plant("geranium", sale_price=4.0, purchase_price=2.0)
 
     balance = currency(20)
     print(balance)
 
-    plot1 = plot()
+    plot1 = plot(milkweed)
+    plot1.water()
+    plot1.water()
+    plot1.water()
+    plot1.water()
+
+    timer = timeCurrency(10)
+    plot1.watch_plant(timer)
 
     plot1.buy_plant(balance, milkweed)
     print(balance)
