@@ -1,15 +1,15 @@
 ## IMPORTS ##
 import pygame
-import keyboardControls
-import sprite
-import button
-import plant
+from keyboardControls import keyboardControls
+from sprite import sprite
+from button import button
+from plant import plant
 #############
 
 def main():
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
-    kbReader    = keyboardControls.keyboardControls("ESCAPE")
+    kbReader    = keyboardControls("ESCAPE")
 
     BGCOLOR = (255, 247, 224)
 
@@ -20,26 +20,30 @@ def main():
     buttons = []
 
     # Start button
-    startButton = button.button("./Placeholder Sprites/PLCstartbutton.PNG")
+    startButton = button("./Placeholder Sprites/PLCstartbutton.PNG")
     startButton.loc = ((canvas.get_width() / 2) - (startButton.get_width() / 2), 15)
     startButton.makeRect()
     allSprites.append(startButton)
     buttons.append(startButton)
 
     # Quit button
-    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
+    quitButton = button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
     quitButton.loc = (canvas.get_width() - quitButton.get_width() - 15, 15)
     quitButton.makeRect()
     allSprites.append(quitButton)
     buttons.append(quitButton)
 
+    # Plot menu
+    plotMenu = sprite("./Plot Menu Sprites/plotmenubase.PNG")
+    
+
     # Dirt
-    dirt = sprite.sprite("./Placeholder Sprites/PLCplots.PNG")
+    dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
     dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
     allSprites.append(dirt)
 
     # Plant
-    testPlant = plant.plant("milkweed")
+    testPlant = plant("milkweed")
     allSprites.append(testPlant)
     
     
