@@ -18,15 +18,19 @@ def main():
     ## SPRITES ##
     allSprites  = []
 
+    buttons = []
+
     # Start button
     startButton = button.button("./Placeholder Sprites/PLCstartbutton.PNG")
     startButton.loc = ((canvas.get_width() / 2) - (startButton.get_width() / 2), 10)
     allSprites.append(startButton)
+    buttons.append(startButton)
 
     # Quit button
-    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG")
+    quitButton = button.button("./Placeholder Sprites/PLCquitbutton.PNG", "quit")
     quitButton.loc = ((canvas.get_width() - quitButton.get_width() - 10, 10))
     allSprites.append(quitButton)
+    buttons.append(quitButton)
 
     # Dirt
     dirt = sprite.sprite("./Placeholder Sprites/PLCplots.PNG")
@@ -34,22 +38,14 @@ def main():
     allSprites.append(dirt)
 
     # Plant
-    testPlant = plant.plant("PLC", "./Placeholder Sprites/testPlant")
-    testPlant.loc = (100, 100)
+    testPlant = plant.plant("milkweed")
     allSprites.append(testPlant)
-
-    plantYLoc =  canvas.get_height() - (dirt.get_height() / 2) - 30 + testPlant.get_height()
-    plotXLocs = [106, 212, 318, 424, 530, 636]
-    currPlantNum = 0
-
-
     
     
     #############
 
     while keepRunning:
         canvas.fill(BGCOLOR)
-        keepRunning = kbReader.processOneEvent()
 
         # Draw all sprites
         for s in allSprites:
@@ -57,6 +53,11 @@ def main():
         
         # Draw final product
         pygame.display.flip()
+
+        mousePos = pygame.mouse.get_pos()
+
+        # Process input
+        keepRunning = kbReader.processOneEvent(mousePos, buttons)
 
 if __name__ == "__main__":
     main()
