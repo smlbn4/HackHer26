@@ -62,14 +62,14 @@ def main():
     piggyBank.loc = (5, 5)
     allSprites.append(piggyBank)
 
-    font = pygame.font.SysFont("Textile", 52)
-    text_surface = font.render(str(coinBalance), True, (0, 0, 0))
-    text_rect = text_surface.get_rect()
-    text_rect.center = (125, 75)
+    piggyLabel = pygame.font.SysFont("Textile", 52)
+    piggyLabelSurface = piggyLabel.render(str(coinBalance), True, (0, 0, 0))
+    piggyLabelRect = piggyLabelSurface.get_rect()
+    piggyLabelRect.center = (125, 75)
 
     # Dirt
     dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
-    dirt.loc = (0, canvas.get_height() - dirt.get_height() - 30)
+    dirt.loc = (0, canvas.get_height() - dirt.get_height() - 20)
     allSprites.append(dirt)
 
     # Plants
