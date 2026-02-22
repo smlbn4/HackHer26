@@ -2,6 +2,7 @@
 import pygame
 from sprite import sprite
 from keyboardControls import keyboardControls
+from plotUI import plotUI
 ###
 
 class button(sprite):
@@ -22,7 +23,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None):
+    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None):
         if action == "none":
             print("none")
             return True
@@ -35,13 +36,21 @@ class button(sprite):
         if action == "unfocus":
             return "focusstop"
         if action == "buy":
-            return
+            chosenIndex = plotUI.selectPlot()
+            
+
         if action == "water":
-            print("water")
+            chosenIndex = plotUI.selectPlot()
+
+
         if action == "watch":
-            print("watch")
+            chosenIndex = plotUI.selectPlot()
+
+
         if action == "sell":
-            print("sell")
+            chosenIndex = plotUI.selectPlot()
+
+
 
     def makeRect(self):
         self.pressRect = pygame.rect.Rect(int(self.get_location()[0]), int(self.get_location()[1]), int(self.get_width()), int(self.get_height()))

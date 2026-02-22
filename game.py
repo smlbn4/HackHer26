@@ -23,9 +23,11 @@ def main():
     for e in plots:
         e = plot()
 
+    i = 0
     plotRects   = [None, None, None, None, None]
     for e in plotRects:
         e = pygame.rect.Rect((plant.PLOT_X_LOCS[i], plant.PLANT_Y), (plant.PLANT_DIMS))
+        i += 1
 
     BGCOLOR = (255, 247, 224)
 
@@ -95,7 +97,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton)
+        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots)
 
         if result == False:
             keepRunning = False
