@@ -20,5 +20,8 @@ class bug(sprite):
 
     def get_prob(self):
         return self.probability
+    
+    def __str__(self):
+        return self.type
     #def get_sprite(self):
         #return f"{self.spritesfolder}/{self.type}stage{self.stage}.PNG" #needs to be edited
