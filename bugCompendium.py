@@ -7,9 +7,14 @@ class bugCompendium(button):
         self.current_index = 0
         self.page = page(bug.bug_types[self.current_index])
 
-    def turn_page(self):
+    def turn_page_forward(self):
         if self.current_index < len(bug.bug_types) - 1:
             self.current_index += 1
+            self.page = page(bug.bug_types[self.current_index])
+    
+    def turn_page_backwards(self):
+        if self.current_index > 0:
+            self.current_index -= 1
             self.page = page(bug.bug_types[self.current_index])
 
 
@@ -22,6 +27,6 @@ if __name__ == "__main__":
     print(compendium.page.get_description())
     print(compendium.page.get_name())
 
-    compendium.turn_page()
+    compendium.turn_page_forward()
     print(compendium.page.get_description())
     print(compendium.page.get_name())
