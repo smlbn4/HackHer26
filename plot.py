@@ -3,8 +3,9 @@ from plant import plant
 from currency import currency
 from timeCurrency import timeCurrency
 from bug import bug
+from button import button
 
-class plot:
+class plot():
     
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
