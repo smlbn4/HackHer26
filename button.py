@@ -23,14 +23,28 @@ class button(sprite):
     ## TO IMPLEMENT ##
     def buttonPressed(self, action):
         if action == "none":
+            print("none")
             return True
         if action == "quit":
             return False
         if action == "focus":
             return # STOPWATCH IMPLEMENTATION
+        if action == "buy":
+            print("buy")
+        if action == "water":
+            print("water")
+        if action == "watch":
+            print("watch")
+        if action == "sell":
+            print("sell")
 
     def makeRect(self):
         self.pressRect = pygame.rect.Rect(int(self.get_location()[0]), int(self.get_location()[1]), int(self.get_width()), int(self.get_height()))
 
     def getRect(self):
         return self.pressRect
+    
+    def move(self, newLoc):
+        self.loc = newLoc
+        temp = pygame.Rect(self.pressRect)
+        self.pressRect = (self.loc[0], self.loc[1], temp.width, temp.height)
