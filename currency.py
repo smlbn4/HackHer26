@@ -17,4 +17,7 @@ class currency:
         else:
             return False
         
+    def __str__(self):
+        return f"${self.value}"
+        
         
