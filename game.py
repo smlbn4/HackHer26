@@ -61,7 +61,7 @@ def main():
     # Plot menu
     pMenu = plotMenu()
     buttons.extend([pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
-    allSprites.extend([pMenu, pMenu.plotBuy, pMenu.plotWater, pMenu.plotWatch, pMenu.plotSell])
+    allSprites.extend([pMenu, pMenu.plotB
 
     # Bugs
     bumblebee = bug("bumblebee", 0.2, "The bumblebee is a bug.", "beebalm")
@@ -102,7 +102,7 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots)
+        result = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton, plots, coinBalance, plotRects)
 
         if result == False:
             keepRunning = False
