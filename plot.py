@@ -46,14 +46,32 @@ class plot:
                 plant.plant_types.append(str(self.plot_plant))
                 self.is_empty = False
 
-    def watch_plant(self):
-        if not self.is_empty:
-            if self.plot_plant.can_spawn_bugs:
-                pass
+    def watch_plant(self,clock:timecurrency):
+            if not self.is_empty:
+                if self.plot_plant.can_spawn_bugs:
+                    if not clock.can_Spend(1):
+                        print("Not enough hours!")
+                    else:
+                        clock.time_spent(1)
+                        unfound_bugs = []
+
+                        for dude in self.plot_plant.bugs:
+                            if dude.found:
+                                unfound_bugs.append(dude)
+
+                        if len(unfound_bugs) == 0:
+                            print("All bugs discovered!!!!")
+                        else:
+                            for dude in unfound_bugs:
+                                if random.random() < dude.probability:
+                                    print(f"New Discovery!!! \n{dude.type}")
+                                else:
+                                    print("no little dudes found :(")
+
+                else:
+                    print("Error: Plant cannot spawn bugs, nothing to watch.")
             else:
-                print("Error: Plant cannot spawn bugs, nothing to watch.")
-        else:
-            print("Error: Plot is empty, no plant to watch.")
+                print("Error: Plot is empty, no plant to watch.")
 
     def water(self):
         if not self.is_empty:
