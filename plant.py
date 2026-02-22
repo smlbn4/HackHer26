@@ -26,15 +26,15 @@ class plant(sprite):
         self.thisBug = None
 
         if type == "lettuce":
-            self.thisBug = bug("grasshopper", "Did you know grasshoppers breathe through their abdomen?", self.type)
+            self.thisBug = bug("grasshopper", 0.5, "Did you know grasshoppers breathe through their abdomen?", self.type)
         elif type == "tomato":
-            self.thisBug = bug("mantis", "Did you know mantises have 5 eyes?", self.type)
+            self.thisBug = bug("mantis", 0.4, "Did you know mantises have 5 eyes?", self.type)
         elif type == "milkweed":
-            self.thisBug = bug("monarch", "Did you know monarchs are poisonous?", self.type)
+            self.thisBug = bug("monarch", 0.3, "Did you know monarchs are poisonous?", self.type)
         elif type == "beebalm":
-            self.thisBug = bug("bumblebee", "Did you know bumblebees dance to tell directions?", self.type)
+            self.thisBug = bug("bumblebee", 0.2, "Did you know bumblebees dance to tell directions?", self.type)
         else:
-            self.thisBug = bug("ladybug", "Did you know ladybugs can eat up to 5000 and in their life?", self.type)
+            self.thisBug = bug("ladybug", 0.1, "Did you know ladybugs can eat up to 5000 and in their life?", self.type)
 
         self.purchase_price = purchase_price    # Purchase price from buy tab
         self.sale_price = sale_price            # Sell price at stage 5
