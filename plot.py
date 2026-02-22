@@ -5,6 +5,8 @@ class plot:
     
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
+        self.plot_plant = plot_plant
+        
         if self.plot_plant == None:
             self.is_empty = True
         else:
