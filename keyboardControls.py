@@ -13,7 +13,7 @@ class keyboardControls():
         self.quitKey = pygame.key.key_code(quitKey)
         
 
-    def processOneEvent(self, mousePos, buttons, pMenu, focusScreen, unfocusButton):
+    def processOneEvent(self, mousePos = None, buttons = None, pMenu = None, focusScreen = None, unfocusButton = None):
         pressedKeys =  pygame.key.get_pressed()
         if pressedKeys[self.quitKey]:
             return False
@@ -33,3 +33,5 @@ class keyboardControls():
                         pMenu.show(mousePos)
         return True
 
+    def waitForUnfocus(self, sw, focusScreen, unfocusButton):
+        
