@@ -1,5 +1,6 @@
 ###
 import pygame
+import random
 from sprite import sprite
 from keyboardControls import keyboardControls
 from plot import plot
@@ -89,6 +90,7 @@ class button(sprite):
             
             bug_found = plots[chosenIndex].watch_plant(timeBalance)
             if isinstance(bug_found, bug):
+                bug_found.loc = (random.randint(20, 620), random.randint(500, 640))
                 allSprites.append(bug_found)
                 pygame.display.flip()
 
