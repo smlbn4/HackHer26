@@ -1,6 +1,24 @@
 from button import button
-from bugs import bug_types
+from bug import bug
+from page import page
 
 class bugCompendium(button):
     def __init__(self):
-        pass
+        self.current_index = 0
+        self.page = page(bug.bug_types[self.current_index])
+
+    def turn_page(self):
+        self.current_index += 1
+        self.page = page(bug.bug_types[self.current_index])
+
+
+if __name__ == "__main__":
+    bumblebee = bug("bumblebee", 0.3, "The bumblebee is a bug.")
+    bumblebee.is_found()
+    grasshopper = bug("grasshopper", 0.3, "The grasshopper is a bug.")
+
+    compendium = bugCompendium()
+    print(compendium.page.get_description())
+
+    compendium.turn_page()
+    print(compendium.page.get_description())

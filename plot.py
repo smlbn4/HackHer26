@@ -5,8 +5,10 @@ class plot:
     
     ## CONSTRUCTOR ##
     def __init__(self, plot_plant=None):        # Initialized empty
-        self.plot_plant = plot_plant
-        self.is_empty = True
+        if self.plot_plant == None:
+            self.is_empty = True
+        else:
+            self.is_empty = False
 
     ## METHODS ##
     def sell_plant(self, balance:currency):
