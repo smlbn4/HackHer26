@@ -10,6 +10,7 @@ from plotMenu import plotMenu
 from stopwatch import stopwatch
 from timeCurrency import timeCurrency
 from currency import currency
+import math
 #############
 
 
@@ -55,7 +56,7 @@ def main():
     hoursLabel = pygame.font.SysFont("Textile", 40)
     hoursLabelSurface = hoursLabel.render(str(timeBalance.get_value()), True, (0, 0, 0))
     hoursLabelRect = hoursLabelSurface.get_rect()
-    hoursLabelRect.center = (hoursSprite.loc[0] + 215, 135)
+    hoursLabelRect.center = (hoursSprite.loc[0] + 200, 135)
 
     # Start button
     focusButton = button("./sprites/focusbutton.PNG", action = "focus")
@@ -159,6 +160,8 @@ def main():
 
             # Add spent time to piggy bank
             timeBalance.add_hours(sw.elapsedTime())
+
+            timeBalance.set(round(timeBalance.get_value(), 1))
 
             sw.reset()
 

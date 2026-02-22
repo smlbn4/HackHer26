@@ -28,3 +28,6 @@ class timeCurrency:
             self.time_spent(hours_price)
         else:
             print("Not enough hours!")
+
+    def set(self, value):
+        self.value = value
