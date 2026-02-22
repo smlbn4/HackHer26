@@ -1,6 +1,5 @@
 ## IMPORTS ##
 import pygame
-import pickle
 import keyboardControls
 import sprite
 import button
