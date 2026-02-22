@@ -29,7 +29,7 @@ class plot:
         else:
             print("Error: Plot is empty, no plant to be sold.")
 
-    def buy_plant(self, balance:currency, seed:plant):
+    def buy_plant(self, balance:currency, seed:plant): 
         if not self.is_empty:
             print("Error: Plot is not empty, cannot buy seeds.")
         else:
