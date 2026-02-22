@@ -21,19 +21,19 @@ class plotMenu(sprite):
 
     def enable(self, buttonType:str):
         if buttonType == "buy":
-            self.plotBuy = button("./Plot Menu Sprites/plotmenubuyenabled.PNG")
+            self.plotBuy = button("./Plot Menu Sprites/plotmenubuyenabled.PNG", self.get_location(), "buy")
             self.plotBuy.pressRect = (self.get_location()[0] + 56, self.get_location()[1] + 46, 80, 28)
 
         if buttonType == "water":
-            self.plotWater = button("./Plot Menu Sprites/plotmenuwaterenabled.PNG")
+            self.plotWater = button("./Plot Menu Sprites/plotmenuwaterenabled.PNG", self.get_location(), "water")
             self.plotWater.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
 
         if buttonType == "watch":
-            self.plotWatch = button("./Plot Menu Sprites/plotmenuwatchenabled.PNG")
+            self.plotWatch = button("./Plot Menu Sprites/plotmenuwatchenabled.PNG", self.get_location(), "watch")
             self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
 
         if buttonType == "sell":
-            self.plotSell = button("./Plot Menu Sprites/plotmenusellenabled.PNG")
+            self.plotSell = button("./Plot Menu Sprites/plotmenusellenabled.PNG", self.get_location(), "sell")
             self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
 
 
@@ -53,3 +53,11 @@ class plotMenu(sprite):
         if buttonType == "sell":
             self.plotSell = button("./Plot Menu Sprites/plotmenuselldisabled.PNG")
             self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+
+    def set_position(self, loc:tuple):
+        self.loc = loc
+
+        self.plotBuy.pressRect = (self.get_location()[0] + 56, self.get_location()[1] + 46, 80, 28)
+        self.plotWater.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
+        self.plotWatch.pressRect = (self.get_location()[0] + 58, self.get_location()[1] + 153, 75, 27)
+        self.plotSell.pressRect = (self.get_location()[0] + 59, self.get_location()[1] + 83, 75, 30)
