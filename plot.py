@@ -1,5 +1,8 @@
+import random
 from plant import plant
 from currency import currency
+from timeCurrency import timeCurrency
+from bug import bug
 
 class plot:
     
@@ -46,7 +49,7 @@ class plot:
                 plant.plant_types.append(str(self.plot_plant))
                 self.is_empty = False
 
-    def watch_plant(self,clock:timecurrency):
+    def watch_plant(self,clock:timeCurrency):
             if not self.is_empty:
                 if self.plot_plant.can_spawn_bugs:
                     if not clock.can_Spend(1):
@@ -56,7 +59,7 @@ class plot:
                         unfound_bugs = []
 
                         for dude in self.plot_plant.bugs:
-                            if dude.found:
+                            if not dude.found:
                                 unfound_bugs.append(dude)
 
                         if len(unfound_bugs) == 0:

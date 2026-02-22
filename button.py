@@ -1,6 +1,7 @@
 ###
 import pygame
 from sprite import sprite
+from stopwatch import stopwatch
 ###
 
 class button(sprite):
@@ -21,14 +22,16 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action):
+    def buttonPressed(self, action, focusScreen, unfocusButton):
         if action == "none":
             print("none")
             return True
         if action == "quit":
             return False
         if action == "focus":
-            return # STOPWATCH IMPLEMENTATION
+            focusScreen.visible = True
+        if action == "unfocus":
+            return
         if action == "buy":
             print("buy")
         if action == "water":

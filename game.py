@@ -9,6 +9,7 @@ from plotMenu import plotMenu
 from stopwatch import stopwatch
 #############
 
+
 def main():
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
@@ -24,11 +25,11 @@ def main():
     buttons = []
 
     # Start button
-    startButton = button("./Placeholder Sprites/PLCstartbutton.PNG")
-    startButton.loc = ((canvas.get_width() / 2) - (startButton.get_width() / 2), 15)
-    startButton.makeRect()
-    allSprites.append(startButton)
-    buttons.append(startButton)
+    focusButton = button("./Placeholder Sprites/PLCstartbutton.PNG", action = "focus")
+    focusButton.loc = ((canvas.get_width() / 2) - (focusButton.get_width() / 2), 15)
+    focusButton.makeRect()
+    allSprites.append(focusButton)
+    buttons.append(focusButton)
 
     # Quit button
     quitButton = button("./Placeholder Sprites/PLCquitbutton.PNG", action = "quit")
@@ -58,6 +59,12 @@ def main():
     ladybug = bug("ladybug", 0.4, "The ladybug is a bug.", "geranium")
     monarch = bug("monarch", 0.3, "The monarch is a bug.", "milkweed")
     mantis = bug("mantis", 0.1, "The mantis is a bug.", "tomato")
+
+    # Focus screen
+    focusScreen = sprite("./sprites/focusbg.PNG")
+    focusScreen.visible = False
+    unfocusButton = button("./sprites/unforcusbutton.PNG", (), "unfocus")
+    unfocusButton.visible = False
     
     #############
 
@@ -75,7 +82,8 @@ def main():
         mousePos = pygame.mouse.get_pos()
 
         # Process input
-        keepRunning = kbReader.processOneEvent(mousePos, buttons, pMenu)
+        keepRunning = kbReader.processOneEvent(mousePos, buttons, pMenu, focusScreen, unfocusButton)
+
 
 
 
