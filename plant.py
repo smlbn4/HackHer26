@@ -22,11 +22,23 @@ class plant(sprite):
 
         self.stage = 1                          # Initial stage
         self.type = type   
-        self.bug = bug                     # Type (string)
         super().__init__(self.get_path())       # Sprite superclass
 
         self.can_spawn_bugs = False             # Can't spawn bugs until stage 5
-        self.bug = bug                       # Bugs to spawn
+        
+        self.thisBug = None
+
+        if type == "lettuce":
+            self.thisBug = bug("grasshopper", "Did you know grasshoppers breathe through their abdomen?", self.type)
+        elif type == "tomato":
+            self.thisBug = bug("mantis", "Did you know mantises have 5 eyes?", self.type)
+        elif type == "milkweed":
+            self.thisBug = bug("milkweed", "Did you know monarchs are poisonous?", self.type)
+        elif type == "beebalm":
+            self.thisBug = bug("bumblebee", "Did you know bumblebees dance to tell directions?", self.type)
+        else:
+            self.thisBug = bug("ladybug", "Did you know ladybugs can eat up to 5000 and in their life?", self.type)
+
         self.purchase_price = purchase_price    # Purchase price from buy tab
         self.sale_price = sale_price            # Sell price at stage 5
         plant.plant_types.append(str(self))     # Add plant to list of all plants
