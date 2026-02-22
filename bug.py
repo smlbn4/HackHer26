@@ -22,7 +22,7 @@ class bug(sprite):
         #need to change sprite
 
     def get_path(self):
-        return f"bugs/{self.type}bug.PNG"
+        return f"./bugs/{self.type}bug.PNG"
 
     def get_prob(self):
         return self.probability
