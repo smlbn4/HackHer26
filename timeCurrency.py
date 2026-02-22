@@ -1,5 +1,5 @@
-from stopwatch import Stopwatch
-class Time:
+from stopwatch import stopwatch
+class timeCurrency:
 
     def __init__(self, value):
         self.value = value
@@ -10,7 +10,7 @@ class Time:
     def add_hours(self,hours=1):
         self.value += hours
 
-    def add_from_timer(self,timer:Stopwatch):
+    def add_from_timer(self,timer:stopwatch):
         self.value += timer.elapsed_time
         timer.reset()
 

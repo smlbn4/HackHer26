@@ -6,12 +6,14 @@ from button import button
 from plant import plant
 from bug import bug
 from plotMenu import plotMenu
+from stopwatch import stopwatch
 #############
 
 def main():
     canvas      = pygame.display.set_mode((640, 640))
     keepRunning = True
     kbReader    = keyboardControls("ESCAPE")
+    sw          = stopwatch()
 
     BGCOLOR = (255, 247, 224)
 
@@ -34,7 +36,6 @@ def main():
     quitButton.makeRect()
     allSprites.append(quitButton)
     buttons.append(quitButton)
-
 
     # Dirt
     dirt = sprite("./Placeholder Sprites/PLCplots.PNG")
