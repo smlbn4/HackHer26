@@ -26,4 +26,5 @@ class keyboardControls():
                     for b in buttons:
                         if b.getRect().collidepoint(mousePos):
                             return b.buttonPressed(b.getAction())
+                            
         return True

@@ -8,8 +8,13 @@ class plant(sprite):
     PLANT_Y = 350   # Y for all plants
     plant_types = []
 
+    plantCount = -1
+
     ## CONSTRUCTOR ##
     def __init__(self, type:str, bugs = [], purchase_price:float = 0.0, sale_price:float = 0.0):
+
+        plant.plantCount += 1
+
         self.stage = 1
         self.type = type
         super().__init__(self.get_path())
@@ -19,6 +24,8 @@ class plant(sprite):
         self.purchase_price = purchase_price
         self.sale_price = sale_price
         plant.plant_types.append(str(self))
+
+        self.loc = (plant.PLOT_X_LOCS[plant.plantCount], plant.PLANT_Y)
 
     def water_plant(self):
         if self.stage < 5:

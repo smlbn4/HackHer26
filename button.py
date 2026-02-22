@@ -30,7 +30,7 @@ class button(sprite):
             return # STOPWATCH IMPLEMENTATION
 
     def makeRect(self):
-        self.pressRect = pygame.rect.Rect((self.get_location()[0], self.get_location()[1]), (self.get_width(), self.get_height()))
+        self.pressRect = pygame.rect.Rect(int(self.get_location()[0]), int(self.get_location()[1]), int(self.get_width()), int(self.get_height()))
 
     def getRect(self):
         return self.pressRect
