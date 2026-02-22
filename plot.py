@@ -8,14 +8,10 @@ class plot:
         self.plot_plant = plot_plant
         self.is_empty = False
 
-<<<<<<< HEAD
-    def sell_plant(self, balance:currency): 
-=======
 
     ## METHODS ##
     def sell_plant(self, balance:currency):
         # If there is a plant in slot
->>>>>>> d539ce52ef4c42647fefa19384da6f930ba6f8fb
         if not self.is_empty:
             # Is mature?
             if self.plot_plant.can_sell_plant():
