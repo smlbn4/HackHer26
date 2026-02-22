@@ -13,18 +13,19 @@ class plant(sprite):
     ## CONSTRUCTOR ##
     def __init__(self, type:str, bugs = [], purchase_price:float = 0.0, sale_price:float = 0.0):
 
-        plant.plantCount += 1
+        plant.plantCount += 1                   # Increases plant count
 
-        self.stage = 1
-        self.type = type
-        super().__init__(self.get_path())
+        self.stage = 1                          # Initial stage
+        self.type = type                        # Type (string)
+        super().__init__(self.get_path())       # Sprite superclass
 
-        self.can_spawn_bugs = False
-        self.bugs = bugs
-        self.purchase_price = purchase_price
-        self.sale_price = sale_price
-        plant.plant_types.append(str(self))
+        self.can_spawn_bugs = False             # Can't spawn bugs until stage 5
+        self.bugs = bugs                        # Bugs to spawn
+        self.purchase_price = purchase_price    # Purchase price from buy tab
+        self.sale_price = sale_price            # Sell price at stage 5
+        plant.plant_types.append(str(self))     # Add plant to list of all plants
 
+        # Location based on past planted 
         self.loc = (plant.PLOT_X_LOCS[plant.plantCount], plant.PLANT_Y)
 
     def water_plant(self):
