@@ -52,8 +52,8 @@ class plot:
             print("Error: Plot is empty, no plant to water.")
 
 if __name__ == "__main__":
-    milkweed = plant.plant("milkweed", "./milkweed", sale_price=3.0, purchase_price=1.5)
-    geranium = plant.plant("geranium", "./geranium", sale_price=4.0, purchase_price=2.0)
+    milkweed = plant.plant("milkweed", sale_price=3.0, purchase_price=1.5)
+    geranium = plant.plant("geranium", sale_price=4.0, purchase_price=2.0)
 
     balance = currency.currency(0)
     print(balance)

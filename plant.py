@@ -3,10 +3,9 @@ class plant(sprite):
     plant_types = []
 
     ## CONSTRUCTOR ##
-    def __init__(self, type:str, img_folder:str, bugs = [], purchase_price:float = 0.0, sale_price:float = 0.0):
+    def __init__(self, type:str, bugs = [], purchase_price:float = 0.0, sale_price:float = 0.0):
         self.stage = 1
         self.type = type
-        self.img_folder = img_folder
         super().__init__(self.get_path())
 
         self.can_spawn_bugs = False
@@ -27,7 +26,7 @@ class plant(sprite):
         super().__init__(self.get_path())
 
     def get_path(self):
-        return f"{self.img_folder}/{self.type}stage{self.stage}.PNG"
+        return f"{self.type}/{self.type}stage{self.stage}.PNG"
 
     def can_sell_plant(self):
         if self.stage == 5:
@@ -48,7 +47,7 @@ class plant(sprite):
         return self.type
 
 if __name__ == "__main__":
-    flower1 = plant("PLC", "./Placeholder Sprites/testPlant")
-    flower2 = plant("flower", "./Placeholder Sprites/testPlant")
+    flower1 = plant("beebalm")
+    flower2 = plant("geranium")
 
 
