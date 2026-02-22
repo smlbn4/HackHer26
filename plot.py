@@ -13,6 +13,7 @@ class plot:
         if not self.is_empty:
             if self.plot_plant.can_sell_plant():
                 plant.plant.plant_types.remove(str(self.plot_plant))
+                self.plot_plant.reset_stage()
 
                 revenue = self.plot_plant.get_sale_price()
                 balance.increase_value(revenue)
