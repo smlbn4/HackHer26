@@ -3,7 +3,7 @@ import pygame
 import pickle
 import keyboardControls
 import sprite
-import button
+import button as button
 import plant
 #############
 
