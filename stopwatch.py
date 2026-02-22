@@ -19,7 +19,7 @@ class stopwatch:
         self.running = False
 
     def elapsedTime(self): #return time elapsed
-        self.elapsed_time = self.stop_time - self.start_time 
+        self.elapsed_time = (self.stop_time - self.start_time)/360
         return self.elapsed_time
 
     def reset(self): #return nothing
