@@ -1,5 +1,11 @@
 from sprite import sprite
 class plant(sprite):
+    ## All plants should be 127 x 197 px ##
+        
+    # Possible x locations
+    PLOT_X_LOCS = [58, 154, 260, 366, 472, 578]
+
+    PLANT_Y = 350   # Y for all plants
     plant_types = []
 
     ## CONSTRUCTOR ##
