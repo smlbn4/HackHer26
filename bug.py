@@ -1,15 +1,15 @@
 from sprite import sprite
 
 class bug(sprite):
+    bug_types = []
 
-    buglist = []
-
-    def __init__(self,probability,spritesfolder):
+    def __init__(self, type:str, probability,spritesfolder):
         self.found = False
+        self.type = type
         self.probability = probability
         self.spritesfolder = spritesfolder
 
-        bug.buglist.append(self)
+        bug.buglist.append(str(self))
 
     def is_found(self):
         self.found = True
