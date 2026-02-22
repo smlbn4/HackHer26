@@ -24,7 +24,7 @@ class keyboardControls():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     for b in buttons:
-                        if pygame.Rect(b.getRect()).collidepoint(mousePos):
+                        if pygame.Rect(b.getRect()).collidepoint(mousePos) and b.visible:
                             return b.buttonPressed(b.getAction())
                 elif event.button == 3:
                     if pMenu.visible:
