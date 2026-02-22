@@ -3,6 +3,7 @@ import pygame
 from sprite import sprite
 from keyboardControls import keyboardControls
 from plotUI import plotUI
+from plant import plant
 ###
 
 class button(sprite):
@@ -23,7 +24,7 @@ class button(sprite):
         return False
     
     ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None):
+    def buttonPressed(self, action = "none", focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None):
         if action == "none":
             print("none")
             return True
@@ -35,8 +36,11 @@ class button(sprite):
             return "focusstart"
         if action == "unfocus":
             return "focusstop"
+        
+        # Buy in target plot
         if action == "buy":
-            chosenIndex = plotUI.selectPlot()
+            "activated click yay"
+            chosenIndex = plotUI.selectPlot(plotRects)
             
             seed = None
 
@@ -45,10 +49,18 @@ class button(sprite):
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_L:
-                    return
+                if event.key == pygame.K_l:
+                    seed = plant("lettuce", 2, 5)
+                elif event.key == pygame.K_t:
+                    seed = plant("tomato", 4, 10)
+                elif event.key == pygame.K_m:
+                    seed = plant("milkweed", 6, 15)
+                elif event.key == pygame.K_b:
+                    seed = plant("beebalm", 8, 20)
+                elif event.key == pygame.K_g:
+                    seed = plant("geranium", 10, 25)
             
-            plots[chosenIndex].buy_plant
+            plots[chosenIndex].buy_plant(coinBalance, seed)
 
         if action == "water":
             chosenIndex = plotUI.selectPlot()
