@@ -22,8 +22,8 @@ def main():
     keepRunning = True
     kbReader    = keyboardControls("ESCAPE")
     sw          = stopwatch()
-    timeBalance = timeCurrency(500)
-    coinBalance = currency(500)
+    timeBalance = timeCurrency(0)
+    coinBalance = currency(10)
 
     plots       = []
     for i in range(5):
