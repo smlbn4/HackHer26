@@ -1,13 +1,13 @@
-###
+## IMPORTS ##
 import pygame
 import random
 from sprite import sprite
-from keyboardControls import keyboardControls
 from plot import plot
-from plotUI import plotUI
+from staticMethods import selectPlot, resource_path
 from plant import plant
 from bug import bug
-###
+from quitGame import quitGame
+#############
 
 class button(sprite):
     
@@ -26,10 +26,8 @@ class button(sprite):
             return True
         return False
     
-    ## TO IMPLEMENT ##
-    def buttonPressed(self, action = "none", canvas = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None, allSprites = None):
+    def buttonPressed(self, action = "none", canvas = None, mousePos = None, focusScreen = None, unfocusButton = None, plots = None, coinBalance = None, plotRects = None, timeBalance = None, shop = None, allSprites = None, buttons = None):
         if action == "none":
-            print("none")
             return True
         if action == "quit":
             return False
@@ -42,51 +40,77 @@ class button(sprite):
         
         # Buy in target plot
         if action == "buy":
-            chosenIndex = plotUI.selectPlot(plotRects)
-            
+            select = sprite(resource_path("./sprites/plotselecticon.PNG"))
+            canvas.blit(select.get_image(), select.get_location())
+            pygame.display.flip()
+
+            chosenIndex = selectPlot(plotRects, buttons)
+
+            select.visible = False
+
             seed = None
 
-            shop.visible = True
-            canvas.blit(shop.get_image(), shop.get_location())
-            pygame.display.flip()
+            if plots[chosenIndex].is_empty:
+                shop.visible = True
+                canvas.blit(shop.get_image(), shop.get_location())
+                pygame.display.flip()
 
-            while seed == None:
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        running = False
-                    elif event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_l:
-                            seed = plant("lettuce", 2, 5, chosenIndex)
-                            continue
-                        elif event.key == pygame.K_t:
-                            seed = plant("tomato", 4, 10, chosenIndex)
-                            continue
-                        elif event.key == pygame.K_m:
-                            seed = plant("milkweed", 6, 15, chosenIndex)
-                            continue
-                        elif event.key == pygame.K_b:
-                            seed = plant("beebalm", 8, 20, chosenIndex)
-                            continue
-                        elif event.key == pygame.K_g:
-                            seed = plant("geranium", 10, 25, chosenIndex)
-                            continue
-
-            print("made it past loop")
+                while seed == None:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            raise quitGame
+                        elif event.type == pygame.MOUSEBUTTONDOWN:
+                            if event.button == 1:
+                                for b in buttons:
+                                    if pygame.Rect(b.getRect()).collidepoint(mousePos) and b.visible and b.getAction() == "quit":
+                                        raise quitGame
+                                    
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_l:
+                                seed = plant("lettuce", 2, 5, chosenIndex)
+                                continue
+                            elif event.key == pygame.K_t:
+                                seed = plant("tomato", 4, 10, chosenIndex)
+                                continue
+                            elif event.key == pygame.K_m:
+                                seed = plant("milkweed", 6, 15, chosenIndex)
+                                continue
+                            elif event.key == pygame.K_b:
+                                seed = plant("beebalm", 8, 20, chosenIndex)
+                                continue
+                            elif event.key == pygame.K_g:
+                                seed = plant("geranium", 10, 25, chosenIndex)
+                                continue
+            else:
+                pass
         
             shop.visible = False
-            canvas.blit(shop.get_image(), shop.get_location())
-            pygame.display.flip()
             
             plots[chosenIndex].buy_plant(coinBalance, seed)
 
+            del select.surface
+            del select
+
         if action == "water":
-            chosenIndex = plotUI.selectPlot(plotRects)
+            select = sprite(resource_path("./sprites/plotselecticon.PNG"))
+            canvas.blit(select.get_image(), select.get_location())
+            pygame.display.flip()
+
+            chosenIndex = selectPlot(plotRects, buttons)
 
             plots[chosenIndex].water(timeBalance)
 
+            select.visible = False
+            del select.surface
+            del select
+
 
         if action == "watch":
-            chosenIndex = plotUI.selectPlot(plotRects)
+            select = sprite(resource_path("./sprites/plotselecticon.PNG"))
+            canvas.blit(select.get_image(), select.get_location())
+            pygame.display.flip()
+
+            chosenIndex = selectPlot(plotRects, buttons)
             
             bug_found = plots[chosenIndex].watch_plant(timeBalance)
             if isinstance(bug_found, bug):
@@ -94,14 +118,24 @@ class button(sprite):
                 allSprites.append(bug_found)
                 pygame.display.flip()
 
+            select.visible = False
+            del select.surface
+            del select
+
 
         if action == "sell":
-            chosenIndex = plotUI.selectPlot(plotRects)
+            select = sprite(resource_path("./sprites/plotselecticon.PNG"))
+            canvas.blit(select.get_image(), select.get_location())
+            pygame.display.flip()
+        
+            chosenIndex = selectPlot(plotRects, buttons)
 
             plots[chosenIndex].sell_plant(coinBalance)
             plots[chosenIndex] = plot()
 
-            pygame.display.flip()
+            select.visible = False
+            del select.surface
+            del select
 
 
 

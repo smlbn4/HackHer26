@@ -1,8 +1,8 @@
 
 ## IMPORTS ##
 import pygame
-from stopwatch import stopwatch
 #############
+
 
 class keyboardControls():
     
@@ -24,7 +24,7 @@ class keyboardControls():
                 if event.button == 1:
                     for b in buttons:
                         if pygame.Rect(b.getRect()).collidepoint(mousePos) and b.visible:
-                            return b.buttonPressed(b.getAction(), canvas, focusScreen, unfocusButton, plots, coinBalance, plotRects, timeBalance, shop = shop, allSprites = allSprites)
+                            return b.buttonPressed(b.getAction(), canvas, mousePos, focusScreen, unfocusButton, plots, coinBalance, plotRects, timeBalance, shop = shop, allSprites = allSprites, buttons = buttons)
                 elif event.button == 3:
                     if pMenu.visible:
                         pMenu.hide()

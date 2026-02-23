@@ -1,4 +1,8 @@
+## IMPORTS ##
 from stopwatch import stopwatch
+#############
+
+
 class timeCurrency:
 
     def __init__(self, value):

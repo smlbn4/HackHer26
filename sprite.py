@@ -1,7 +1,6 @@
-###
-import os
+## IMPORTS ##
 import pygame
-###
+#############
 
 class sprite():  
 

@@ -1,5 +1,7 @@
+## IMPORTS ##
 from sprite import sprite
 from bug import bug
+#############
 
 class page(sprite):
     def __init__(self, page_bug:bug):

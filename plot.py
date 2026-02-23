@@ -1,8 +1,10 @@
+## IMPORTS ##
 import random
 from plant import plant
 from currency import currency
 from timeCurrency import timeCurrency
-from bug import bug
+#############
+
 
 class plot:
     
@@ -31,9 +33,6 @@ class plot:
                 self.plot_plant.visible = False           
                 del self.plot_plant
                 self.is_empty = True                                # Set plot to empty
-
-
-                
 
             # Plant is not stage 5 - cannot sell
             else:
@@ -83,31 +82,3 @@ class plot:
             else:
                 return
 
-if __name__ == "__main__":
-    bumblebee = bug("bumblebee", 0.4, "milkweed")
-
-    milkweed = plant("milkweed", bugs=[bumblebee], sale_price=3.0, purchase_price=1.5)
-    geranium = plant("geranium", sale_price=4.0, purchase_price=2.0)
-
-    balance = currency(20)
-    print(balance)
-
-    plot1 = plot(milkweed)
-    plot1.water()
-    plot1.water()
-    plot1.water()
-    plot1.water()
-
-    timer = timeCurrency(10)
-    plot1.watch_plant(timer)
-
-    plot1.buy_plant(balance, milkweed)
-    print(balance)
-
-    plot1.water()
-    plot1.water()
-    plot1.water()
-    plot1.water()
-    
-    plot1.sell_plant(balance)
-    print(balance)

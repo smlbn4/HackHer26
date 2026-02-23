@@ -1,15 +1,18 @@
+## IMPORTS ##
 from sprite import sprite
+#############
+
 
 class bug(sprite):
     bug_types = []
 
-    def __init__(self, type:str, probability, description="", plant=""):
+    def __init__(self, type:str, imagepath, probability, description="", plant=""):
         self.found = False
         self.type = type
         self.probability = probability
         self.description = description
         self.plant = plant
-        super().__init__(self.get_path())
+        super().__init__(imagepath)
 
         bug.bug_types.append(self)
 
@@ -20,9 +23,6 @@ class bug(sprite):
         self.found = False
         bug.bug_types.remove(str(self))
         #need to change sprite
-
-    def get_path(self):
-        return f"./bugs/{self.type}bug.PNG"
 
     def get_prob(self):
         return self.probability

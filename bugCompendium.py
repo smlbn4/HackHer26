@@ -1,6 +1,9 @@
+## IMPORTS ##
 from button import button
 from bug import bug
 from page import page
+#############
+
 
 class bugCompendium(button):
     # Set the page index to 0 

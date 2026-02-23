@@ -1,7 +1,10 @@
+## IMPORTS ##
 from sprite import sprite
-from timeCurrency import timeCurrency
-
 from bug import bug
+from staticMethods import resource_path
+#############
+
+
 class plant(sprite):
     ## All plants should be 127 x 197 px ##
         
@@ -26,15 +29,15 @@ class plant(sprite):
         self.thisBug = None
 
         if type == "lettuce":
-            self.thisBug = bug("grasshopper", 0.5, "Did you know grasshoppers breathe through their abdomen?", self.type)
+            self.thisBug = bug("grasshopper", resource_path("./bugs/grasshopperbug.PNG"), 0.5, "Did you know grasshoppers breathe through their abdomen?", self.type)
         elif type == "tomato":
-            self.thisBug = bug("mantis", 0.4, "Did you know mantises have 5 eyes?", self.type)
+            self.thisBug = bug("mantis", resource_path("./bugs/mantisbug.PNG"), 0.4, "Did you know mantises have 5 eyes?", self.type)
         elif type == "milkweed":
-            self.thisBug = bug("monarch", 0.3, "Did you know monarchs are poisonous?", self.type)
+            self.thisBug = bug("monarch", resource_path("./bugs/monarchbug.PNG"), 0.3, "Did you know monarchs are poisonous?", self.type)
         elif type == "beebalm":
-            self.thisBug = bug("bumblebee", 0.2, "Did you know bumblebees dance to tell directions?", self.type)
+            self.thisBug = bug("bumblebee", resource_path("./bugs/bumblebeebug.PNG"), 0.2, "Did you know bumblebees dance to tell directions?", self.type)
         else:
-            self.thisBug = bug("ladybug", 0.1, "Did you know ladybugs can eat up to 5000 and in their life?", self.type)
+            self.thisBug = bug("ladybug", resource_path("./bugs/ladybugbug.PNG"), 0.1, "Did you know ladybugs can eat up to 5000 and in their life?", self.type)
 
         self.purchase_price = purchase_price    # Purchase price from buy tab
         self.sale_price = sale_price            # Sell price at stage 5
@@ -42,9 +45,6 @@ class plant(sprite):
 
         # Location based on past planted 
         self.loc = (plant.PLOT_X_LOCS[index], plant.PLANT_Y)
-        print(self.loc)
-
-        print(f"{index}")
 
     def water_plant(self):
         if self.stage < 5:
@@ -58,7 +58,7 @@ class plant(sprite):
         super().__init__(self.get_path(), self.loc)
 
     def get_path(self):
-        return f"{self.type}/{self.type}stage{self.stage}.PNG"
+        return resource_path(f"{self.type}/{self.type}stage{self.stage}.PNG")
 
     def can_sell_plant(self):
         if self.stage == 5:
@@ -78,8 +78,5 @@ class plant(sprite):
     def __str__(self):
         return self.type
 
-if __name__ == "__main__":
-    flower1 = plant("beebalm")
-    flower2 = plant("geranium")
 
 
