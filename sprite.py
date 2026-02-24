@@ -9,7 +9,7 @@ class sprite():
 
         # Setting up the image
         self.imageFileName =    imagefname
-        self.image =            pygame.image.load(imagefname)
+        self.image =            pygame.image.load(imagefname).convert_alpha()
         self.surface =          pygame.Surface(self.image.get_size(), pygame.SRCALPHA)
         self.surface.blit(self.image, (0, 0))
 
